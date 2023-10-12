@@ -1,6 +1,8 @@
 {
     "welcome.title": "Welcome to my Fullstack Web Developer Portfolio",
     "welcome.description": "My name is Kevin Fontt, and I am a passionate web development professional with expertise in various technologies. In this portfolio, you will find all my work, projects, and experience up to the current date. If you wish to collaborate with me or offer me employment, please don't hesitate to contact me. I also speak Spanish. If you'd like to view this page in Spanish, you can switch language with the switch of above!",
+    "project.button":"Projects",
+    "contact.button":"Contact",
     "projects.title": "Welcome to my Projects",
     "projects.description":"Here, I can share my experience with you, explaining what I can do, the technologies I master, and what I have accomplished throughout my career. I've been a developer since the beginning, working on everything from small projects to large endeavors with lots of code and passion. ❤️❤️",
     "cat-black.title":"Cat Black Air Conditioning",
@@ -13,6 +15,8 @@
     "javascript.description": "In this JavaScript repository, you'll find JavaScript guides and some solved exercises from various tests I've worked on while applying for jobs over time.",
     "github.title": "GitHub Repositories",
     "github.description": "All my GitHub repositories are here, including my personal projects. Some are public, while others are not for security reasons. Take a look!",
+    "kupos.title":"IT support Executive in Kupos.cl (2023)",
+    "kupos.description":"This is my current job, where I work as an operations and IT support executive, involving some development and script execution.",
     "contact.title": "Contact",
     "contact.description": "These are my contact channels for now, I'll be waiting for you.",
     "contact.ia": "I created this image with AI.",

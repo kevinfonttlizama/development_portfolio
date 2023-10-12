@@ -2,5 +2,24 @@
     "welcome.title": "Welcome to my Fullstack Web Developer Portfolio",
     "welcome.description": "My name is Kevin Fontt, and I am a passionate web development professional with expertise in various technologies. In this portfolio, you will find all my work, projects, and experience up to the current date. If you wish to collaborate with me or offer me employment, please don't hesitate to contact me. I also speak Spanish. If you'd like to view this page in Spanish, you can switch language with the switch of above!",
     "projects.title": "Welcome to my Projects",
-    "projects.description":"Here, I can share my experience with you, explaining what I can do, the technologies I master, and what I have accomplished throughout my career. I've been a developer since the beginning, working on everything from small projects to large endeavors with lots of code and passion. ❤️❤️"
-  }
+    "projects.description":"Here, I can share my experience with you, explaining what I can do, the technologies I master, and what I have accomplished throughout my career. I've been a developer since the beginning, working on everything from small projects to large endeavors with lots of code and passion. ❤️❤️",
+    "cat-black.title":"Cat Black Air Conditioning",
+    "cat-black.description":"Cat Black Air Conditioning is my biggest project so far. It is an e-commerce website for my father's company, and for security reasons, I cannot share the source code.",
+    "portfolio.title": "Personal Portfolio",
+    "portfolio.description": "I'm sharing the source code of this personal portfolio with you. You're welcome to edit it as you wish and use it as your own portfolio. Feel free to customize it to your liking. It's built with Bootstrap 5 and Angular.",
+    "python.title": "Python Projects",
+    "python.description": "Here, you'll find my customized study guides and personal Python research. It's a GitHub repository created specifically for this purpose so you can see my skills.",
+    "javascript.title": "JavaScript Projects",
+    "javascript.description": "In this JavaScript repository, you'll find JavaScript guides and some solved exercises from various tests I've worked on while applying for jobs over time.",
+    "github.title": "GitHub Repositories",
+    "github.description": "All my GitHub repositories are here, including my personal projects. Some are public, while others are not for security reasons. Take a look!",
+    "contact.title": "Contact",
+    "contact.description": "These are my contact channels for now, I'll be waiting for you.",
+    "contact.ia": "I created this image with AI.",
+    "contact.whatsapp": "Contact me on WhatsApp 🤠",
+    "go.whatsapp": "Go to WhatsApp",
+    "contact.linkedin": "LinkedIn for professional connections 🧐",
+    "go.linkedin": "Go to LinkedIn",
+    "contact.github": "Visit my public repositories 🤓",
+    "go.github": "Go to GitHub"
+}

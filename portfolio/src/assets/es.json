@@ -2,8 +2,30 @@
     "welcome.title": "Bienvenido a mi Portafolio como Desarrollador web Fullstack",
     "welcome.description": "Mi nombre es Kevin Fontt, soy un apasionado profesional del desarrollo web y otras tecnologías. En este portafolio encontrarás todos mis trabajos, proyectos y experiencia que tengo hasta la fecha de hoy. Si quieres trabajar conmigo o ofrecerme un empleo, no dudes en contactarme. También hablo inglés. Si deseas ver esta página en inglés, puedes cambiar de idioma aquí.",
     "projects.title": "Bienvenido a mis proyectos",
-    "projects.description":"Aqui te puedo contar mi experiencia, que es lo que puedo hacer, tecnologias que domino y que es lo que he hecho a lo largo de mi carrera desde que he empezado como desarrollador desde proyectos pequeños a grandes proyectos con mucho codigo y amor ♡♡"
+    "projects.description":"Aqui te puedo contar mi experiencia, que es lo que puedo hacer, tecnologias que domino y que es lo que he hecho a lo largo de mi carrera desde que he empezado como desarrollador desde proyectos pequeños a grandes proyectos con mucho codigo y amor ♡♡",
+    "cat-black.title":"Aire Acondicionado Cat Black",
+    "cat-black.description":"Aire Acondicionado Cat Black es mi projecto mas grande hasta ahora, es una pagina web de ecommerce para la empresa de mi padre por razones de seguridad no puedo compartir el codigo fuente.",
+    "portfolio.title":"Portafolio Personal",
+    "portfolio.description":"Te dejo el codigo fuente de este portafolio personal, puedes editarlo si quieres y usarlo como portafolio sientete libre de modificarlo si gustas, esta hecho con bootstrap 5 y angular",
+    "python.title":"Python projects",
+    "python.description":"Aqui encontraras mis guias personalizadas de estudio y mis investigaciones personales de python es un repositorio de Github especialmente creado para esto para que puedas ver mis habilidades.",
+    "javascript.title":"Javascript projects",
+    "javascript.description":"Aqui encontraras el repositorio de Javascript donde guardo guias de javascript y algunos ejercicios resueltos de algunas pruebas que desarrollado a lo largo del tiempo postulando a empleos..",
+    "github.title":"Github repositories",
+    "github.description":"Aqui estan todos mis repositorios de Github donde estan todos mis projectos personales, algunos son publicos y otros no por razones de seguridad, hecha un vistazo!",
+    "kupos.title":"Kupos.cl",
+    "Kupos.description":"actual job",
+    "contact.title":"Contacto",
+    "contact.description":"Estos son mis canales de contacto por ahora, estare esperandote",
+    "contact.ia":"esta imagen la hice con IA",
+    "contact.whatsapp":"Contactame a mi Whatsapp 🤠",
+    "go.whatsapp":"Ir a Whatsapp",
+    "contact.linkedin":"Linkedin para lo laboral 🧐",
+    "go.linkedin":"Ir a linkedin",
+    "contact.github":"Visita mis repositorios publicos 🤓",
+    "go.github":"Ir a Github"
     
     
+
   }
   

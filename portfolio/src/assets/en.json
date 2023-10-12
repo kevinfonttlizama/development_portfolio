@@ -25,5 +25,7 @@
     "contact.linkedin": "LinkedIn for professional connections 🧐",
     "go.linkedin": "Go to LinkedIn",
     "contact.github": "Visit my public repositories 🤓",
-    "go.github": "Go to GitHub"
+    "go.github": "Go to GitHub",
+    "projects":"My Projects",
+    "contact":"Contact"
 }

@@ -1,16 +1,127 @@
-<div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-<h1 class="display-4 fw-bold lh-1 text-body-emphasis">{{ 'welcome.title' | translate }}</h1>
-<p class="lead mt-3">{{ 'welcome.description' | translate }}</p>
-
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-outline-dark btn-lg px-4 me-md-2" [routerLink]="'/proyectos'"> {{ 'project.button' | translate }} </button>
-          <button type="button" class="btn btn-outline-dark btn-lg px-4" [routerLink]="'/contacto'">{{ 'contact.button' | translate }}</button>
-        </div>
-      </div>
-      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3 img-fluid" src="../../assets/arthas_dk_scp.jpg" alt="" width="500">
+<main>
+  <!-- Sección de Proyectos -->
+  <section id="projects-section" class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h1 class="fw-bold display-4 text-primary">{{ 'projects.title' | translate }}</h1>
+        <p class="lead text-secondary">{{ 'projects.description' | translate }}</p>
       </div>
     </div>
-  </div>
+    <div class="album bg-light py-5">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <div class="col" *ngFor="let project of projects; let i = index">
+            <div class="card shadow-sm h-100">
+              <div class="overflow-hidden" style="max-height: 200px;">
+                <img class="img-fluid card-img-top" [src]="project.image" [alt]="project.title | translate" style="object-fit: cover; height: 200px;">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-primary">{{ project.title | translate }}</h5>
+                <p class="card-text text-muted">{{ project.description | translate }}</p>
+                <div class="d-flex justify-content-center align-items-center">
+                  <a class="btn btn-outline-primary" [href]="project.link" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ 'go.link' | translate }}">
+                    {{ 'go.link' | translate }} <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Contacto -->
+  <section id="contact-section" class="py-5">
+    <div class="container">
+      <div class="card mb-5 shadow-lg border-0 rounded-3 overflow-hidden">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../assets/doc-plaga.jpg" class="img-fluid w-100 h-100" alt="..." style="object-fit: cover;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title text-primary">{{ 'contact.title' | translate }}</h3>
+              <p class="card-text text-muted">{{ 'contact.description' | translate }}</p>
+              <p class="card-text"><small class="text-secondary">{{ 'contact.ia' | translate }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="card border-success shadow-sm h-100">
+            <div class="card-header bg-success text-white">
+              <i class="bi bi-whatsapp me-2"></i>WhatsApp
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ 'contact.whatsapp' | translate }}</h5>
+              <a class="btn btn-outline-success mt-3" href="https://wa.me/56936752317" target="_blank">
+                {{ 'go.whatsapp' | translate }} <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card border-primary shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+              <i class="bi bi-linkedin me-2"></i>LinkedIn
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ 'contact.linkedin' | translate }}</h5>
+              <a class="btn btn-outline-primary mt-3" href="https://www.linkedin.com/in/kevinfonttdev/" target="_blank">
+                {{ 'go.linkedin' | translate }} <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card border-dark shadow-sm h-100">
+            <div class="card-header bg-dark text-white">
+              <i class="bi bi-github me-2"></i>GitHub
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ 'contact.github' | translate }}</h5>
+              <a class="btn btn-outline-dark mt-3" href="https://github.com/kevinfonttlizama" target="_blank">
+                {{ 'go.github' | translate }} <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Equipo -->
+  <section id="team-section" class="py-5">
+    <div class="container">
+      <div class="row mb-4 mb-lg-5 text-center">
+        <div class="col-md-8 col-xl-6 mx-auto">
+          <h2>{{ 'team.title' | translate }}</h2>
+          <p>{{ 'team.description' | translate }}</p>
+        </div>
+      </div>
+      <div class="row gy-4 row-cols-1 row-cols-md-3">
+        <div class="col">
+          <div class="card border-0 shadow-none text-center">
+            <img class="rounded-circle mb-3 fit-cover" width="130" height="130" src="../../assets/arthas_dk_scp.jpg" alt="Kevin Fontt Lizama">
+            <h5 class="fw-bold text-primary card-title mb-0">Kevin Fontt Lizama</h5>
+            <p class="text-muted card-text mb-2">{{ 'team.role' | translate }}</p>
+            <ul class="list-inline fs-6 text-muted w-100 mb-0">
+              <li class="list-inline-item text-center">
+                <a href="https://www.facebook.com" class="text-dark"><i class="bi bi-facebook"></i></a>
+              </li>
+              <li class="list-inline-item text-center">
+                <a href="https://twitter.com" class="text-dark"><i class="bi bi-twitter"></i></a>
+              </li>
+              <li class="list-inline-item text-center">
+                <a href="https://www.instagram.com" class="text-dark"><i class="bi bi-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

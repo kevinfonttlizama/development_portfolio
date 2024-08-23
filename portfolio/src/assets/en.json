@@ -6,7 +6,7 @@
     "projects.title": "Welcome to my Projects",
     "projects.description":"Here, I can share my experience with you, explaining what I can do, the technologies I master, and what I have accomplished throughout my career. I've been a developer since the beginning, working on everything from small projects to large endeavors with lots of code and passion. ❤️❤️",
     "cat-black.title":"Cat Black Air Conditioning",
-    "cat-black.description":"Cat Black Air Conditioning is my biggest project so far. It is an e-commerce website for my father's company, and for security reasons, I cannot share the source code.",
+    "cat-black.description":"Cat Black Air Conditioning is my biggest project so far. It is an e-commerce website with payment methods, is in production mode, take a look! ",
     "portfolio.title": "Personal Portfolio",
     "portfolio.description": "I'm sharing the source code of this personal portfolio with you. You're welcome to edit it as you wish and use it as your own portfolio. Feel free to customize it to your liking. It's built with Bootstrap 5 and Angular.",
     "python.title": "Python Projects",

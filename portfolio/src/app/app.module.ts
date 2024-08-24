@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/', '.json');
@@ -23,7 +24,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    LenguageComponent
+    LenguageComponent,
+    SidebarComponent
   ],
   imports: [
     HttpClientModule,

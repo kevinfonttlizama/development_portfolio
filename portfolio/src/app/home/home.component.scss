@@ -165,6 +165,13 @@ header {
   }
 }
 
+
+
+
+
+
+
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -377,5 +384,37 @@ header {
   }
   to {
     opacity: 1;
+  }
+}
+.pricing-card-custom {
+  h6 {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn {
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
   }
 }

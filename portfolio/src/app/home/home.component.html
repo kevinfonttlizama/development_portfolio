@@ -51,37 +51,7 @@
     </div>
   </header>
 
-  <!-- Sección de Proyectos -->
-  <section id="projects-section" class="py-5 text-center container bg-light-gradient">
-    <div class="row py-lg-5">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <h1 class="fw-bold display-4 text-primary mb-3 animated-title">{{ 'projects.title' | translate }}</h1>
-        <p class="lead text-secondary mb-5">{{ 'projects.description' | translate }}</p>
-      </div>
-    </div>
-    <div class="album py-5">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-          <div class="col" *ngFor="let project of projects; let i = index">
-            <div class="card shadow-sm h-100 hover-card">
-              <div class="overflow-hidden rounded-top" style="max-height: 200px;">
-                <img class="img-fluid card-img-top scale-on-hover" [src]="project.image" [alt]="project.title | translate" style="object-fit: cover; height: 200px;">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-primary">{{ project.title | translate }}</h5>
-                <p class="card-text text-muted">{{ project.description | translate }}</p>
-                <div class="d-flex justify-content-center align-items-center">
-                  <a class="btn btn-primary btn-glow" [href]="project.link" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ 'go.link' | translate }}">
-                    {{ 'go.link' | translate }} <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Sección de Servicios -->
   <section id="services-section" class="py-5 bg-light-gradient">
@@ -136,7 +106,6 @@
                   </li>
                 </ul>
               </div>
-              <a class="btn btn-primary d-block w-100" role="button" href="#">Contratar</a>
             </div>
           </div>
         </div>
@@ -171,7 +140,6 @@
                   </li>
                 </ul>
               </div>
-              <a class="btn btn-primary d-block w-100" role="button" href="#">Contratar</a>
             </div>
           </div>
         </div>
@@ -217,7 +185,6 @@
                   </li>
                 </ul>
               </div>
-              <a class="btn btn-primary d-block w-100" role="button" href="#">Contratar</a>
             </div>
           </div>
         </div>
@@ -254,7 +221,6 @@
                   </li>
                 </ul>
               </div>
-              <a class="btn btn-primary d-block w-25" role="button btn-outline " href="#">Consultar</a>
             </div>
           </div>
         </div>
@@ -275,7 +241,7 @@
         <div class="col-lg-4">
           <div class="card team-card border-0 shadow text-center p-3">
             <div class="team-image-container mx-auto mb-3">
-              <img class="rounded-circle fit-cover team-image" width="130" height="130" src="../../assets/arthas_dk_scp.jpg" alt="Kevin Fontt Lizama">
+              <img class="rounded-circle fit-cover team-image" width="130" height="130" src="../../assets/yo_y_mi_bb.jpg" alt="Kevin Fontt Lizama">
             </div>
             <h5 class="fw-bold text-primary card-title mb-1">Kevin Fontt Lizama</h5>
             <p class="text-muted card-text mb-3">{{ 'team.role' | translate }}</p>
@@ -296,10 +262,39 @@
     </div>
   </section>
 
-  <!-- Botón flotante para cambiar el tema -->
-  <button class="btn btn-toggle-mode-floating" (click)="toggleTheme()" aria-label="Toggle theme">
-    <i class="bi" [ngClass]="isDarkMode ? 'bi-sun-fill' : 'bi-moon-fill'"></i>
-  </button>
+  <!-- Sección de Proyectos -->
+  <section id="projects-section" class="py-5 text-center container bg-light-gradient">
+    <div class="row py-lg-5">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h1 class="fw-bold display-4 text-primary mb-3 animated-title">{{ 'projects.title' | translate }}</h1>
+        <p class="lead text-secondary mb-5">{{ 'projects.description' | translate }}</p>
+      </div>
+    </div>
+    <div class="album py-5">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <div class="col" *ngFor="let project of projects; let i = index">
+            <div class="card shadow-sm h-100 hover-card">
+              <div class="overflow-hidden rounded-top" style="max-height: 200px;">
+                <img class="img-fluid card-img-top scale-on-hover" [src]="project.image" [alt]="project.title | translate" style="object-fit: cover; height: 200px;">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-primary">{{ project.title | translate }}</h5>
+                <p class="card-text text-muted">{{ project.description | translate }}</p>
+                <div class="d-flex justify-content-center align-items-center">
+                  <a class="btn btn-primary btn-glow" [href]="project.link" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ 'go.link' | translate }}">
+                    {{ 'go.link' | translate }} <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   <!-- Botones Flotantes de Redes Sociales -->
   <div class="floating-buttons">

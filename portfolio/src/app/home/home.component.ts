@@ -58,12 +58,6 @@ export class HomeComponent {
       description: 'github.description',
       image: '../../assets/github_gif.gif',
       link: 'https://github.com/kevinfonttlizama?tab=repositories'
-    },
-    {
-      title: 'kupos.title',
-      description: 'kupos.description',
-      image: '../../assets/kupos.png',
-      link: '#'
     }
   ];
 }

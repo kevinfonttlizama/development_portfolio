@@ -17,5 +17,6 @@ export class SidebarComponent {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    this.isSidebarExpanded = false; // Cierra la sidebar después de seleccionar una opción
   }
 }

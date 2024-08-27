@@ -4,8 +4,8 @@
   left: 0;
   height: 100%;
   width: 70px;
-  background: rgba(255, 255, 255, 0.2); /* Fondo con transparencia */
-  backdrop-filter: blur(10px); /* Efecto de desenfoque para glassmorphism */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   &:hover {
     width: 220px;
     background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px); /* Aumenta el desenfoque al hacer hover */
+    backdrop-filter: blur(15px);
   }
 
   .brand {
@@ -88,7 +88,7 @@
         }
 
         &:hover {
-          background: rgba(224, 224, 224, 0.3); /* Fondo al hacer hover con transparencia */
+          background: rgba(224, 224, 224, 0.3);
           color: #333;
 
           i {
@@ -112,56 +112,79 @@
   }
 }
 
-/* Responsividad */
+/* Responsividad para dispositivos móviles */
 @media (max-width: 768px) {
   .sidebar {
-    width: 60px;
+    width: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease, width 0.3s ease;
 
-    &:hover {
-      width: 180px;
+    &.expanded {
+      transform: translateX(0);
+      width: 200px;
     }
 
-    .nav-item {
-      .nav-link {
-        padding: 0.5rem;
-        font-size: 0.9rem;
+    .brand {
+      .brand-text {
+        font-size: 1rem;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
 
-        i {
-          font-size: 1.2rem;
+    .nav-links {
+      .nav-item {
+        .nav-link {
+          padding: 0.5rem;
+          font-size: 1rem;
+
+          i {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+          }
+
+          span {
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
     }
   }
 }
 
-@media (max-width: 576px) {
-  .sidebar {
-    width: 50px;
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 
-    &:hover {
-      width: 160px;
-    }
+  &:hover {
+    background: #0056b3;
+  }
 
-    .brand {
-      .profile-image {
-        width: 40px;
-        height: 40px;
-      }
+  i {
+    font-size: 1.5rem;
+  }
+}
 
-      .brand-text {
-        font-size: 1rem;
-      }
-    }
-
-    .nav-item {
-      .nav-link {
-        padding: 0.4rem;
-        font-size: 0.8rem;
-
-        i {
-          font-size: 1.1rem;
-        }
-      }
-    }
+/* Ocultar el botón de toggle en escritorio */
+@media (min-width: 768px) {
+  .sidebar-toggle {
+    display: none;
   }
 }

@@ -12,6 +12,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeroComponent } from './hero/hero.component';
+import { ServicesComponent } from './services/services.component';
+import { TeamComponent } from './team/team.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/', '.json');
@@ -25,7 +29,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     FooterComponent,
     LenguageComponent,
-    SidebarComponent
+    SidebarComponent,
+    HeroComponent,
+    ServicesComponent,
+    TeamComponent,
+    ProjectsComponent
   ],
   imports: [
     HttpClientModule,

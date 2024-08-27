@@ -1,0 +1,51 @@
+<header>
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="4"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active slide-1">
+          <div class="carousel-caption">
+            <h1 class="display-4 text-uppercase">{{ 'hero.expert_web_development' | translate }}</h1>
+            <p>{{ 'hero.expert_web_development.description' | translate }}</p>
+          </div>
+        </div>
+        <div class="carousel-item slide-2">
+          <div class="carousel-caption">
+            <h1 class="display-4 text-uppercase">{{ 'hero.seo_that_works' | translate }}</h1>
+            <p>{{ 'hero.seo_that_works.description' | translate }}</p>
+          </div>
+        </div>
+        <div class="carousel-item slide-3">
+          <div class="carousel-caption">
+            <h1 class="display-4 text-uppercase">{{ 'hero.google_ads_merchant_center' | translate }}</h1>
+            <p>{{ 'hero.google_ads_merchant_center.description' | translate }}</p>
+          </div>
+        </div>
+        <div class="carousel-item slide-4">
+          <div class="carousel-caption">
+            <h1 class="display-4 text-uppercase">{{ 'hero.creative_content_solutions' | translate }}</h1>
+            <p>{{ 'hero.creative_content_solutions.description' | translate }}</p>
+          </div>
+        </div>
+        <div class="carousel-item slide-5">
+          <div class="carousel-caption">
+            <h1 class="display-4 text-uppercase">{{ 'hero.comprehensive_web_security' | translate }}</h1>
+            <p>{{ 'hero.comprehensive_web_security.description' | translate }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ 'carousel.previous' | translate }}</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ 'carousel.next' | translate }}</span>
+      </button>
+    </div>
+  </header>

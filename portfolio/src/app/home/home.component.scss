@@ -1,5 +1,8 @@
 html, body {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 header {
@@ -17,16 +20,16 @@ header {
   color: white;
   position: relative;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
 
-  &.active {
-    opacity: 1;
-    transform: scale(1);
-  }
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
 
-  &:not(.active) {
-    opacity: 0;
-    transform: scale(0.95);
-  }
+.carousel-item:not(.active) {
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 .carousel-caption {
@@ -127,10 +130,10 @@ header {
 
 .btn-glow {
   box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
 
-  .btn-glow:hover {
-    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
-  }
+.btn-glow:hover {
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
 }
 
 @keyframes fadeInUp {
@@ -146,31 +149,24 @@ header {
 
 .card {
   border-radius: 15px;
-
-  .card-header {
-    font-size: 1.25rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn {
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  }
 }
 
+.card-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.btn {
+  transition: all 0.3s ease;
+}
 
-
-
-
-
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 .card-body {
   display: flex;
@@ -195,11 +191,11 @@ header {
   background: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 15px;
+}
 
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .team-image-container {
@@ -227,15 +223,47 @@ header {
 
 .list-inline-item a {
   transition: color 0.3s ease;
-
-  &:hover {
-    color: #0056b3;
-  }
 }
 
+.list-inline-item a:hover {
+  color: #0056b3;
+}
+
+/* Adjustments for Mobile */
 @media (max-width: 767px) {
   .team-card {
     margin-bottom: 20px;
+  }
+
+  .carousel-caption h1 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+
+  .carousel-item {
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .carousel-inner {
+    overflow: hidden;
+  }
+
+  .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-caption {
+    bottom: 20%;
+  }
+
+  .carousel-item::after {
+    display: none;
   }
 }
 
@@ -269,112 +297,112 @@ header {
   overflow: hidden;
   transition: width 0.3s ease, padding-left 0.3s ease, padding-right 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+}
 
-  i {
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, margin-right 0.3s ease; /* Ajuste para desplazar el ícono */
-  }
+.floating-btn i {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, margin-right 0.3s ease; /* Ajuste para desplazar el ícono */
+}
 
-  span {
-    opacity: 0;
-    visibility: hidden;
-    margin-left: 10px;
-    white-space: nowrap;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    position: absolute;
-    left: 60px; /* Posición del texto a la derecha del ícono */
-  }
+.floating-btn span {
+  opacity: 0;
+  visibility: hidden;
+  margin-left: 10px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: absolute;
+  left: 60px; /* Posición del texto a la derecha del ícono */
+}
 
-  /* Efecto Neón en Estado Inicial */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 55px #ff00ff;
-    opacity: 0;
-    animation: neonGlow 1.5s infinite alternate;
-    pointer-events: none;
-  }
+/* Efecto Neón en Estado Inicial */
+.floating-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 55px #ff00ff;
+  opacity: 0;
+  animation: neonGlow 1.5s infinite alternate;
+  pointer-events: none;
+}
 
-  &:hover::before {
-    opacity: 0; /* Desactiva el efecto neón al abrirse */
-  }
+.floating-btn:hover::before {
+  opacity: 0; /* Desactiva el efecto neón al abrirse */
+}
 
-  &:hover {
-    width: 150px; /* Se expande el botón hacia la izquierda */
-    padding-left: 15px; /* Desplaza el ícono hacia la izquierda */
-    padding-right: 15px; /* Ajuste para centrar el contenido */
-    justify-content: flex-start;
-    box-shadow: 0 0 15px currentColor, 0 0 25px currentColor, 0 0 35px currentColor;
+.floating-btn:hover {
+  width: 150px; /* Se expande el botón hacia la izquierda */
+  padding-left: 15px; /* Desplaza el ícono hacia la izquierda */
+  padding-right: 15px; /* Ajuste para centrar el contenido */
+  justify-content: flex-start;
+  box-shadow: 0 0 15px currentColor, 0 0 25px currentColor, 0 0 35px currentColor;
+}
 
-    i {
-      transform: scale(1.2);
-      margin-right: auto; /* Desplaza el ícono hacia la izquierda */
-    }
+.floating-btn:hover i {
+  transform: scale(1.2);
+  margin-right: auto; /* Desplaza el ícono hacia la izquierda */
+}
 
-    span {
-      opacity: 1;
-      visibility: visible;
-      left: 50px; /* Asegura que el texto esté a la derecha del ícono */
-    }
-  }
+.floating-btn:hover span {
+  opacity: 1;
+  visibility: visible;
+  left: 50px; /* Asegura que el texto esté a la derecha del ícono */
+}
 
-  /* Estilos específicos para cada botón */
-  &.whatsapp {
-    background-color: #25D366;
-    color: #fff;
+/* Estilos específicos para cada botón */
+.floating-btn.whatsapp {
+  background-color: #25D366;
+  color: #fff;
+}
 
-    &::before {
-      box-shadow: 0 0 5px #fff, 0 0 10px #25D366, 0 0 15px #25D366, 0 0 20px #25D366, 0 0 30px #25D366, 0 0 40px #25D366, 0 0 55px #25D366;
-    }
+.floating-btn.whatsapp::before {
+  box-shadow: 0 0 5px #fff, 0 0 10px #25D366, 0 0 15px #25D366, 0 0 20px #25D366, 0 0 30px #25D366, 0 0 40px #25D366, 0 0 55px #25D366;
+}
 
-    &:hover {
-      box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 35px #25D366;
-    }
-  }
+.floating-btn.whatsapp:hover {
+  box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 35px #25D366;
+}
 
-  &.linkedin {
-    background-color: #0077b5;
-    color: #fff;
+.floating-btn.linkedin {
+  background-color: #0077b5;
+  color: #fff;
+}
 
-    &::before {
-      box-shadow: 0 0 5px #fff, 0 0 10px #0077b5, 0 0 15px #0077b5, 0 0 20px #0077b5, 0 0 30px #0077b5, 0 0 40px #0077b5, 0 0 55px #0077b5;
-    }
+.floating-btn.linkedin::before {
+  box-shadow: 0 0 5px #fff, 0 0 10px #0077b5, 0 0 15px #0077b5, 0 0 20px #0077b5, 0 0 30px #0077b5, 0 0 40px #0077b5, 0 0 55px #0077b5;
+}
 
-    &:hover {
-      box-shadow: 0 0 15px #0077b5, 0 0 25px #0077b5, 0 0 35px #0077b5;
-    }
-  }
+.floating-btn.linkedin:hover {
+  box-shadow: 0 0 15px #0077b5, 0 0 25px #0077b5, 0 0 35px #0077b5;
+}
 
-  &.instagram {
-    background-color: #e4405f;
-    color: #fff;
+.floating-btn.instagram {
+  background-color: #e4405f;
+  color: #fff;
+}
 
-    &::before {
-      box-shadow: 0 0 5px #fff, 0 0 10px #e4405f, 0 0 15px #e4405f, 0 0 20px #e4405f, 0 0 30px #e4405f, 0 0 40px #e4405f, 0 0 55px #e4405f;
-    }
+.floating-btn.instagram::before {
+  box-shadow: 0 0 5px #fff, 0 0 10px #e4405f, 0 0 15px #e4405f, 0 0 20px #e4405f, 0 0 30px #e4405f, 0 0 40px #e4405f, 0 0 55px #e4405f;
+}
 
-    &:hover {
-      box-shadow: 0 0 15px #e4405f, 0 0 25px #e4405f, 0 0 35px #e4405f;
-    }
-  }
+.floating-btn.instagram:hover {
+  box-shadow: 0 0 15px #e4405f, 0 0 25px #e4405f, 0 0 35px #e4405f;
+}
 
-  &.github {
-    background-color: #333;
-    color: #fff;
+.floating-btn.github {
+  background-color: #333;
+  color: #fff;
+}
 
-    &::before {
-      box-shadow: 0 0 5px #fff, 0 0 10px #333, 0 0 15px #333, 0 0 20px #333, 0 0 30px #333, 0 0 40px #333, 0 0 55px #333;
-    }
+.floating-btn.github::before {
+  box-shadow: 0 0 5px #fff, 0 0 10px #333, 0 0 15px #333, 0 0 20px #333, 0 0 30px #333, 0 0 40px #333, 0 0 55px #333;
+}
 
-    &:hover {
-      box-shadow: 0 0 15px #333, 0 0 25px #333, 0 0 35px #333;
-    }
-  }
+.floating-btn.github:hover {
+  box-shadow: 0 0 15px #333, 0 0 25px #333, 0 0 35px #333;
 }
 
 /* Animación de neón */
@@ -384,37 +412,5 @@ header {
   }
   to {
     opacity: 1;
-  }
-}
-.pricing-card-custom {
-  h6 {
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-
-  h4 {
-    font-size: 2rem;
-  }
-
-  ul {
-    padding-left: 0;
-    list-style-type: none;
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-
-  .btn {
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-
-    &:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-    }
   }
 }

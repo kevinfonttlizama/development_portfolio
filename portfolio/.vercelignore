@@ -1,0 +1,5 @@
+node_modules/
+.git/
+dist/
+src/assets/large-video.mp4
+src/assets/large-image.png

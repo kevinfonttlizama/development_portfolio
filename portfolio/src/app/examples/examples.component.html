@@ -1,0 +1,79 @@
+<div class="projects-gallery">
+    <div class="project-card" (click)="toggleProjectDetails('project1')">
+      <img src="../../assets/Captura de pantalla 2024-08-24 123601.png" alt="Project 1" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Modern Web Development</h3>
+      </div>
+      <div class="project-details" [ngClass]="{'show': activeProject === 'project1'}">
+        <h4>Modern Web Development</h4>
+        <p>Creating responsive and interactive web experiences.</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+  
+    <div class="project-card" (click)="toggleProjectDetails('project2')">
+      <img src="../../assets/Captura de pantalla 2024-08-24 123643.png" alt="Project 2" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">E-Commerce Platform</h3>
+      </div>
+      <div class="project-details" [ngClass]="{'show': activeProject === 'project2'}">
+        <h4>E-Commerce Platform</h4>
+        <p>A scalable and user-friendly e-commerce solution.</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card" (click)="toggleProjectDetails('project3')">
+        <img src="../../assets/IMG_20240816_150546-Photoroom.webp" alt="Project 3" class="project-image">
+        <div class="project-overlay">
+          <h3 class="project-title">Generacion de contenido</h3>
+        </div>
+        <div class="project-details" [ngClass]="{'show': activeProject === 'project3'}">
+          <h4>Generacion de contenido</h4>
+          <p>Soluciones de contenido para redes sociales</p>
+        </div>
+      </div>
+  
+      
+      <div class="project-card" (click)="toggleProjectDetails('project4')">
+        <img src="../../assets/IMG_20240817_135456-Photoroom-Photoroom.webp" alt="Project 4" class="project-image">
+        <div class="project-overlay">
+          <h3 class="project-title">Generacion de contenido</h3>
+        </div>
+        <div class="project-details" [ngClass]="{'show': activeProject === 'project4'}">
+          <h4>Generacion de contenido</h4>
+          <p>Soluciones de contenido para redes sociales</p>
+          <a href="#" class="btn btn-primary">View Project</a>
+        </div>
+      </div>
+  
+      
+      <div class="project-card" (click)="toggleProjectDetails('project5')">
+        <img src="../../assets/ejemplo merchant center-Photoroom.webp" alt="Project 5" class="project-image">
+        <div class="project-overlay">
+          <h3 class="project-title">E-Commerce Platform</h3>
+        </div>
+        <div class="project-details" [ngClass]="{'show': activeProject === 'project5'}">
+          <h4>E-Commerce Platform</h4>
+          <p>A scalable and user-friendly e-commerce solution.</p>
+          <a href="#" class="btn btn-primary">View Project</a>
+        </div>
+      </div>
+  
+      
+      <div class="project-card" (click)="toggleProjectDetails('project6')">
+        <img src="../../assets/410a png-Photoroom.png" alt="Project 6" class="project-image">
+        <div class="project-overlay">
+          <h3 class="project-title">E-Commerce Platform</h3>
+        </div>
+        <div class="project-details" [ngClass]="{'show': activeProject === 'project6'}">
+          <h4>E-Commerce Platform</h4>
+          <p>A scalable and user-friendly e-commerce solution.</p>
+          <a href="#" class="btn btn-primary">View Project</a>
+        </div>
+      </div>
+    
+  
+
+  </div>
+  

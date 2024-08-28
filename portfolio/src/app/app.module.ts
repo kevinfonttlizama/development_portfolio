@@ -16,6 +16,7 @@ import { HeroComponent } from './hero/hero.component';
 import { ServicesComponent } from './services/services.component';
 import { TeamComponent } from './team/team.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { ExamplesComponent } from './examples/examples.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/', '.json');
@@ -33,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeroComponent,
     ServicesComponent,
     TeamComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ExamplesComponent
   ],
   imports: [
     HttpClientModule,

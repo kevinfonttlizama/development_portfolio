@@ -38,7 +38,9 @@ export class ProjectsComponent {
       description: 'github.description',
       image: '../../assets/github_gif.gif',
       link: 'https://github.com/kevinfonttlizama?tab=repositories'
-    }
+    },
+  
   ];
+
 
 }

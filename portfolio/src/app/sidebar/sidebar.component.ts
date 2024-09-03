@@ -16,7 +16,10 @@ export class SidebarComponent {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
     }
-    this.isSidebarExpanded = false; // Cierra la sidebar después de seleccionar una opción
+    this.isSidebarExpanded = false;
   }
+
+  
 }

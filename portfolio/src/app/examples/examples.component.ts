@@ -57,7 +57,14 @@ export class ExamplesComponent {
       title: 'Portafolios web',
       description: 'Ejemplo de estilo Neon',
       image: '../../assets/neon-template.webp',
-      link: '#'
+      link: 'https://plantilla-test-1.vercel.app/'
+    },
+    {
+      id: 'project8',
+      title: 'Portafolios web',
+      description: 'Ejemplo neon acerca de, descripcion del profesional',
+      image: '../../assets/neon_acerca_de.webp',
+      link: 'https://plantilla-test-1.vercel.app/'
     }
   ];
   

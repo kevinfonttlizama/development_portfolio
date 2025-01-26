@@ -42,7 +42,7 @@
     "services.title": "Nuestros Servicios",
     "services.description": "Elige el plan que mejor se adapte a tus necesidades y comencemos a trabajar juntos en tus proyectos web.",
     "services.basic_website": "Página Web Básica",
-    "services.basic_website.price": "$40.000",
+    "services.basic_website.price": "A consultar",
     "services.basic_website.responsive_design": "Diseño Responsivo",
     "services.basic_website.basic_seo": "Optimización SEO Básica",
     "services.basic_website.scalable": "Escalable y Modificable a Futuro",
@@ -53,7 +53,7 @@
     "services.basic_website.google_analytics": "Google Analytics",
     
     "services.pro": "Pro",
-    "services.pro.price": "$100.000",
+    "services.pro.price": "A consultar",
     "services.pro.all_in_standard": "Todo en Standard",
     "services.pro.api_integration": "Integración de APIs",
     "services.pro.sections": "Hasta 6 Secciones",
@@ -61,10 +61,10 @@
     "services.pro.social_media_buttons": "3 Botones de Redes Sociales Personalizables",
     
     "services.enterprise": "Enterprise",
-    "services.enterprise.price": "$350.000",
+    "services.enterprise.price": "A consultar",
     "services.enterprise.all_in_pro": "Todo en Pro",
-    "services.enterprise.custom_consulting": "Consultoría Personalizada",
-    "services.enterprise.free_support": "Soporte Gratis",
+    "services.enterprise.custom_consulting": "Inteligencia de negocios",
+    "services.enterprise.free_support": "Web scraping, Procesamiento de datos",
     "services.enterprise.online_payment": "Pasarela de Pago Online",
     "services.enterprise.self_manageable": "Sitio Autoadministrable",
     "services.enterprise.shopping_cart": "Carro de Compras",
@@ -81,7 +81,7 @@
     
     "team.title": "Nuestro Equipo",
     "team.description": "Conoce a las personas talentosas que hacen todo esto posible.",
-    "team.role": "Desarrollador Web Fullstack",
+    "team.role": "Desarrollador Fullstack",
     
     "floating_buttons.whatsapp": "WhatsApp",
     "floating_buttons.linkedin": "LinkedIn",

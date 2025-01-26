@@ -41,7 +41,7 @@
     "services.title": "Our Services",
     "services.description": "Choose the plan that best suits your needs and let’s start working together on your web projects.",
     "services.basic_website": "Basic Website",
-    "services.basic_website.price": "$40,000",
+    "services.basic_website.price": "To consult",
     "services.basic_website.responsive_design": "Responsive Design",
     "services.basic_website.basic_seo": "Basic SEO Optimization",
     "services.basic_website.scalable": "Scalable and future-modifiable",
@@ -52,7 +52,7 @@
     "services.basic_website.google_analytics": "Google Analytics",
     
     "services.pro": "Pro",
-    "services.pro.price": "$100,000",
+    "services.pro.price": "To consult",
     "services.pro.all_in_standard": "Everything in Standard",
     "services.pro.api_integration": "API Integration",
     "services.pro.sections": "Up to 6 Sections",
@@ -60,7 +60,7 @@
     "services.pro.social_media_buttons": "3 Customizable Social Media Buttons",
     
     "services.enterprise": "Enterprise",
-    "services.enterprise.price": "$350,000",
+    "services.enterprise.price": "To consult",
     "services.enterprise.all_in_pro": "Everything in Pro",
     "services.enterprise.custom_consulting": "Personalized Consulting",
     "services.enterprise.free_support": "Free Support",

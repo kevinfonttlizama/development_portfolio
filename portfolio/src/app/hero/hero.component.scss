@@ -1,460 +1,951 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$text-shadow-color: rgba(0, 0, 0, 0.7);
-$overlay-bg: rgba(0, 0, 0, 0.4);
-$text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+// Variables para el tema oscuro y neon
+$primary-color: #0d6efd;
+$neon-color: #0d6efd;
+$accent-color: #fd7e14; // Agrega esta línea para definir $accent-color
+$dark-text: #e0e0e0;
+$dark-bg: #121212; // Agrega esta variable para el fondo oscuro
+$transition-speed: 0.3s;
+$font-family-base: 'Montserrat', sans-serif;
+$matte-black: #111111;
+$card-black: #1a1a1a;
 
-.carousel-item {
+// Define $dark-card-bg basado en $card-black
+$dark-card-bg: $card-black;
+
+// Aunque el fondo global se define en styles.scss, aquí se define la coherencia para este componente
+:host {
+  display: block;
+  font-family: $font-family-base;
+  color: $dark-text;
+}
+
+// Carrusel: imágenes responsivas
+.carousel-image {
   height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
 }
 
-.carousel-item.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.carousel-item:not(.active) {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.carousel-caption {
-  bottom: 30%;
-  text-align: center;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.carousel-caption h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.carousel-caption p {
-  font-size: 1.25rem;
-  margin: 15px 0;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-}
-
-.carousel-caption .btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  padding: 10px;
-}
-
-/* Slide Backgrounds */
-.slide-1 {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-}
-
-.slide-2 {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-}
-
-.slide-3 {
-  background: linear-gradient(135deg, #f46b45, #eea849);
-}
-
-.slide-4 {
-  background: linear-gradient(135deg, #1f4037, #99f2c8);
-}
-
-.slide-5 {
-  background: linear-gradient(135deg, #e96443, #904e95);
-}
-
-/* Decorative Elements */
-.carousel-item::before {
-  content: "";
+// Overlay para el carrusel
+.carousel-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
-
-.carousel-item::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle at center, transparent 40%, rgba(255, 255, 255, 0.1) 100%);
-  transform: rotate(45deg);
-  z-index: 0;
-}
-
-.bg-light-gradient {
-  background: linear-gradient(135deg, #ffffff, #f0f0f0);
-}
-
-.bg-gradient {
-  background: linear-gradient(135deg, #343a40, #212529);
-}
-
-.bg-gradient-to-right {
-  background: linear-gradient(to right, #343a40, #212529);
-}
-
-.hero-section {
-  position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
-  background: url('../../assets/universe-8153526_1920.jpg') center/cover no-repeat;
+  height: 75vh;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
+}
 
-  /* Subtle gradient at the bottom */
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+// Ajuste de tipografía en el carrusel
+.carousel-caption {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  h1, p {
+    color: $dark-text;
   }
 }
 
-/* Glassmorphism Container */
-.glass-container {
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
-  width: 90%;
-  padding: 40px;
+// Margen entre secciones
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* ======= NUEVO DISEÑO DE SERVICIOS ======= */
+.service-box {
+  background-color: $dark-card-bg;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 2rem;
   text-align: center;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent container for the glass effect */
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-
-  h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
+  transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+  min-height: 250px;
+  
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  .service-icon {
+    font-size: 3.5rem;
     margin-bottom: 1rem;
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+    color: $accent-color;
   }
-
+  
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+  
   p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
     line-height: 1.6;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    color: $dark-text;
+  }
+}
+
+// Nuevo diseño para la sección de Servicios
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform $transition-speed, box-shadow $transition-speed;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .service-icon-wrapper {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $dark-card-bg;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    font-size: 2rem;
+    color: $primary-color;
+    transition: background $transition-speed, transform $transition-speed;
+    
+    &:hover {
+      background: $primary-color;
+      color: $dark-bg;
+      transform: scale(1.1);
+    }
+  }
+  
+  .service-content {
+    h3.service-title {
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+      color: $primary-color;
+    }
+    p {
+      margin: 0;
+      font-size: 1rem;
+      color: $dark-text;
+      line-height: 1.5;
+    }
+  }
+}
+
+// En pantallas mayores, se distribuyen en dos columnas
+@media (min-width: 768px) {
+  .services-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ======= NUEVO DISEÑO DE CONTACTO ======= */
+.contact-card {
+  max-width: 420px;
+  border: none;
+  background-color: $dark-card-bg;
+  border-top: 4px solid $primary-color;
+  border-radius: 10px;
+  margin: 2rem auto;
+  transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+    font-weight: bold;
+    
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+  
+  .card-text {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    color: $dark-text;
+  }
+  
+  .btn {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    transition: background-color $transition-speed, color $transition-speed;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $dark-bg;
+    }
+  }
+}
+
+// Nuevo diseño para la sección de Servicios con estilo Neon
+.services-section {
+  background-color: $matte-black;
+  padding: 4rem 1rem;
+  
+  .section-title {
+    color: $dark-text;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid $neon-color;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .service-card {
+    background: $card-black;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    color: $dark-text;
+    position: relative;
+    overflow: hidden;
+    transition: transform $transition-speed, box-shadow $transition-speed;
+    border: 1px solid transparent;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px $neon-color;
+    }
+    
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: $neon-color;
+      box-shadow: 0 0 10px $neon-color;
+      transition: transform $transition-speed;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    
+    .service-title {
+      margin: 0.5rem 0 1rem;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: $neon-color;
+      text-shadow: 0 0 5px $neon-color;
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+/* ======= NUEVO DISEÑO DE SERVICIOS - Blanco y Negro Profesional ======= */
+.services-section {
+  background-color: $matte-black;
+  padding: 4rem 1rem;
+
+  .section-title {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 0.5rem;
   }
 
-  .btn-discover {
-    font-size: 1rem;
-    padding: 12px 30px;
-    border-radius: 50px;
-    border: none;
-    background: linear-gradient(135deg, #0062cc, #4dabf7);
-    color: #fff;
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .service-card {
+    /* Tarjeta con fondo blanco y tipografía negra */
+    background-color: #fff;
+    color: #000;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform $transition-speed, box-shadow $transition-speed;
+    overflow: hidden;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .icon-wrapper {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #fff;
+      transition: transform $transition-speed;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    
+    .service-title {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+/* ======= NUEVO DISEÑO DE SERVICIOS PERSONALIZADO ======= */
+.services-section {
+  background-color: $matte-black;
+  padding: 4rem 1rem;
+
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: $neon-color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform $transition-speed, border-color $transition-speed;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateX(5px);
+      border-color: $neon-color;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: $neon-color;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+      transition: transform $transition-speed;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    
+    .service-info {
+      h3.service-title {
+        font-size: 1.5rem;
+        color: #fff;
+        margin: 0;
+        text-shadow: 0 0 5px $neon-color;
+      }
+      p {
+        font-size: 1rem;
+        margin: 0.5rem 0 0;
+        color: #ccc;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+.services-section {
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;  // Letras blancas
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    
+
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    text-align: center;
+    /* Gradiente en el texto */
+    background: linear-gradient(to right, $neon-color, $accent-color);
+    -webkit-background-clip: text;
+    background-clip: text; /* Propiedad estándar para compatibilidad */
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    
+
+  }
+}
+
+// Animación para el glow del título
+@keyframes neon-glow {
+  from {
+    text-shadow: 0 0 5px $neon-color, 0 0 10px $neon-color;
+  }
+  to {
+    text-shadow: 0 0 20px $neon-color, 0 0 30px $neon-color;
+  }
+}
+
+/* ======= NUEVO DISEÑO DE CONTACTO ======= */
+.contact-section {
+  background-color: $dark-bg; // Fondo oscuro consistente
+  padding: 4rem 1rem;
+  text-align: center;
+
+  .contact-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+    position: relative;
+
+
+  }
+
+  .contact-description {
+    font-size: 1.125rem;
+    color: $dark-text;
+    margin-bottom: 2rem;
+  }
+
+  .contact-button {
+    background: linear-gradient(135deg, $neon-color, $accent-color);
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $dark-bg;
+    cursor: pointer;
+    transition: transform $transition-speed, box-shadow $transition-speed;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .contact-card {
+    max-width: 500px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: $card-black;
+    border-top: 4px solid $primary-color;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    
+    .card-body {
+      padding: 2rem;
+      text-align: center;
+
+      .contact-title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 1rem;
+        
+        i {
+          margin-right: 0.5rem;
+          font-size: 1.8rem;
+        }
+      }
+      
+      .contact-description {
+        font-size: 1.125rem;
+        color: $dark-text;
+        margin-bottom: 2rem;
+      }
+      
+      .contact-button {
+        background: linear-gradient(135deg, $neon-color, $accent-color);
+        border: none;
+        border-radius: 30px;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $dark-bg;
+        cursor: pointer;
+        transition: transform $transition-speed, box-shadow $transition-speed;
+        
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+}
+
+/* ======= NUEVO DISEÑO DE CONTACTO CON TARJETA Y ANIMACIONES ======= */
+.contact-section {
+  background-color: $dark-bg;
+  padding: 4rem 1rem;
+  text-align: center;
+  
+  .contact-card {
+    max-width: 500px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $card-black, darken($card-black, 5%));
+    margin: 2rem auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    border-top: 4px solid $primary-color;
+    animation: cardFadeIn 1.5s ease both;
+    
+    .card-body {
+      padding: 2rem;
+      animation: contentSlide 1s ease both;
+      
+      .contact-title {
+        font-size: 2.4rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        position: relative;
+
+        
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+      
+      .contact-description {
+        font-size: 1.1rem;
+        color: $dark-text;
+        margin-bottom: 0.5rem;
+      }
+      
+      .contact-email {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $neon-color;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        animation: emailPulse 2s infinite;
+      }
+      
+      .contact-button {
+        background: linear-gradient(135deg, $neon-color, $accent-color);
+        border: none;
+        border-radius: 30px;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $dark-bg;
+        cursor: pointer;
+        transition: transform $transition-speed, box-shadow $transition-speed;
+        
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+}
+
+/* Animación para el efecto pulse en el correo */
+@keyframes emailPulse {
+  0%, 100% { letter-spacing: 1px; }
+  50% { letter-spacing: 3px; }
+}
+
+/* Animación para la entrada de la tarjeta */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación para el deslizamiento del contenido */
+@keyframes contentSlide {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ======= NUEVO DISEÑO DE CONTACTO - ENFOQUE RENOVADO ======= */
+.contact-section.new-contact {
+  background: linear-gradient(135deg, lighten($dark-bg, 10%), $dark-bg);
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.new-contact-card {
+  max-width: 480px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  border: 2px solid $primary-color;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  margin: 0 auto;
+  animation: cardEntrance 0.8s ease-out;
+  
+  .card-body {
+    padding: 2rem;
+    animation: contentReveal 1s ease-out;
+
+    .contact-title {
+      font-size: 2.6rem;
+      font-family: $font-family-base;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+      padding-bottom: 0.5rem;
+      
+      
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .contact-description {
+      font-size: 1.2rem;
+      color: $dark-text;
+      margin-bottom: 1rem;
+    }
+
+    .contact-email {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $accent-color;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-button {
+      background: transparent;
+      border: 2px solid $primary-color;
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $primary-color;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      
+      &:hover {
+        background: $primary-color;
+        color: $dark-bg;
+      }
+    }
+  }
+}
+
+/* Animación para el ingreso de la tarjeta */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para revelar el contenido de forma sutil */
+@keyframes contentReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ======= CONTACTO MINIMALISTA ======= */
+.contact-section.minimal-contact {
+  background-color: $dark-bg;
+  padding: 4rem 1rem;
+  text-align: center;
+  
+  .minimal-contact-card {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: $card-black;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+  
+  .contact-email {
+    font-size: 1.2rem;
+    color: $neon-color;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-button {
+    background: none;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $primary-color;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    
+    &:hover {
+      background: $primary-color;
+      color: $dark-bg;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======= NUEVO DISEÑO DE CONTACTO PROFESIONAL ======= */
+.professional-contact {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    animation: cardEntrance 0.8s ease-out;
+    
+    .card-header {
+      margin-bottom: 1rem;
+    }
+    
+    .contact-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0;
+      background: linear-gradient(to right, $primary-color, lighten($primary-color, 20%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .card-body {
+      margin-bottom: 1.5rem;
+      .contact-email {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .contact-description {
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+    
+    .card-footer {
+      .contact-button {
+        background-color: $primary-color;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  
+  .contact-card.new-card {
+    max-width: 480px;
+    margin: 2rem auto;
+    background: $card-black;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-top: 4px solid $primary-color;
+    text-align: center;
+    padding: 2rem;
+    transition: transform $transition-speed ease;
     
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
-  }
-}
-
-.hero-overlay {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: #fff;
-  padding: 0 20px;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: #fff;
-  padding: 40px 60px;
-  max-width: 800px;
-  background: $overlay-bg; /* Semi-transparent background */
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: $text-shadow;
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-    text-shadow: $text-shadow;
-  }
-
-  .hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    .btn {
-      padding: 12px 30px;
-      font-size: 1rem;
-      border-radius: 50px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-
-      &.btn-primary {
-        background-color: $primary-color;
-        color: #fff;
-
-        &:hover {
-          background-color: darken($primary-color, 10%);
-          transform: translateY(-5px);
-        }
-      }
-
-      &.btn-secondary {
-        background-color: $secondary-color;
-        color: #fff;
-
-        &:hover {
-          background-color: darken($secondary-color, 10%);
-          transform: translateY(-5px);
-        }
-      }
-    }
-  }
-}
-
-/* Container for hero content */
-.hero-container {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-  padding: 0 20px;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-
-  h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    text-shadow: $text-shadow;
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    text-shadow: $text-shadow;
-  }
-}
-
-/* Buttons group */
-.hero-buttons {
-  display: inline-flex;
-  gap: 1rem;
-
-  .btn {
-    padding: 12px 30px;
-    font-size: 1rem;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    text-align: center;
-
-    &.btn-primary {
-      background-color: $primary-color;
-      color: #fff;
-
-      &:hover {
-        background-color: darken($primary-color, 10%);
-        transform: translateY(-5px);
-      }
-    }
-
-    &.btn-secondary {
-      background-color: $secondary-color;
-      color: #fff;
-
-      &:hover {
-        background-color: darken($secondary-color, 10%);
-        transform: translateY(-5px);
-      }
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .carousel-item {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 20px 15px; /* Aumenta el padding para mejor separación del contenido */
-    background-size: cover;
-    background-position: center;
-  }
-
-  .carousel-caption {
-    bottom: 20%; /* Coloca el texto un poco más arriba para un mejor enfoque */
-    text-align: center;
-    z-index: 2;
-    padding: 15px; /* Añade más padding para evitar que el texto toque los bordes */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
-    border-radius: 10px; /* Añade bordes redondeados al fondo del texto */
-  }
-
-  .carousel-caption h1 {
-    font-size: 2.2rem; /* Ajusta el tamaño de la fuente para que sea más visible */
-    line-height: 1.3; /* Ajusta el line-height para mayor legibilidad */
-    font-weight: bold;
-    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8); /* Aumenta el text-shadow para mejor contraste */
-    margin-bottom: 10px;
-  }
-
-  .carousel-caption p {
-    font-size: 1.1rem; /* Ajusta el tamaño del párrafo para mejor legibilidad */
-    margin: 10px 0 0 0; /* Mantiene un margen ajustado entre el texto */
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7); /* Aumenta ligeramente el shadow para más contraste */
-  }
-
-  .carousel-caption .btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 50%;
-    padding: 12px; /* Ajusta el padding para un mejor control en móviles */
-  }
-
-  .carousel-item::after {
-    display: none; /* Esconde el efecto decorativo adicional en móviles */
-  }
-
-  .hero-section {
-    height: 100vh; /* Maintain full height on mobile */
-    background-position: center;
-  }
-
-  .hero-overlay {
-    .hero-content {
-      h1 {
+    
+    .card-header {
+      margin-bottom: 1rem;
+      
+      .contact-title {
         font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        
+        i {
+          margin-right: 0.5rem;
+          font-size: 1.8rem;
+          color: $primary-color;
+        }
       }
-
-      p {
+    }
+    
+    .card-body {
+      margin-bottom: 1.5rem;
+      
+      .contact-email {
         font-size: 1.2rem;
-      }
-
-      .btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        font-weight: 500;
+        color: $dark-text;
+        /* Animación eliminada para mantenerlo estático */
       }
     }
-  }
-
-  .hero-content {
-    h1 {
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 10px $text-shadow-color;
-    }
-
-    p {
-      font-size: 1.2rem;
-    }
-
-    .btn {
-      padding: 12px 25px;
-      font-size: 1rem;
-    }
-  }
-
-  .glass-container {
-    padding: 20px;
-
-    h1 {
-      font-size: 2rem;
-    }
-    p {
-      font-size: 1rem;
+    
+    .card-footer {
+      .contact-button {
+        background: $primary-color;
+        border: none;
+        border-radius: 25px;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+          transform: translateY(-3px);
+        }
+      }
     }
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    height: 100vh; /* Maintain full height on mobile */
-    background-position: center;
+// Animación para el ingreso de la tarjeta
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .hero-content {
-    padding: 30px 40px;
-
-    h1 {
-      font-size: 2rem;
-      text-shadow: 2px 2px 10px $text-shadow-color;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    .hero-buttons {
-      flex-direction: column;
-      gap: 10px;
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-    }
-  }
-
-  .hero-container {
-    h1 {
-      font-size: 2rem;
-    }
-    p {
-      font-size: 1rem;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+

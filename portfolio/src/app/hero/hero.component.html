@@ -1,7 +1,129 @@
-<header class="hero-section">
-  <div class="glass-container">
-    <h1>Soluciones informaticas profesionales</h1>
-    <p></p>
-    <button class="btn-discover">Desarrollo de software para empresas y particulares</button>
+<main id="inicio">
+  <!-- Carrusel Responsive con Tema Oscuro -->
+  <div id="darkCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#darkCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#darkCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#darkCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../assets/stars-1654074_1920.jpg" class="d-block w-100 carousel-image" alt="Slide 1">
+        <div class="carousel-overlay">
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1 class="display-4">Innovación Oscura</h1>
+              <p class="lead">Soluciones tecnológicas con un toque sofisticado.</p>
+              <a class="btn btn-lg btn-primary" href="#">Conócenos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/stars-2179083_1920.jpg" class="d-block w-100 carousel-image" alt="Slide 2">
+        <div class="carousel-overlay">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="display-4">Desarrollo y Estrategia</h1>
+              <p class="lead">Transformamos ideas en soluciones digitales robustas.</p>
+              <a class="btn btn-lg btn-primary" href="#">Descubre</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/universe-8153526_1920.jpg" class="d-block w-100 carousel-image" alt="Slide 3">
+        <div class="carousel-overlay">
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1 class="display-4">Transformación Total</h1>
+              <p class="lead">Eleva tu negocio con tecnología de vanguardia.</p>
+              <a class="btn btn-lg btn-primary" href="#">Saber más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#darkCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#darkCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
   </div>
-</header>
+
+  <!-- Sección de Servicios con diseño Neon -->
+  <section id="servicios" class="services-section">
+    <div class="container">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <div class="services-list">
+        <!-- Servicio: Software Web -->
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="bi bi-display-fill"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">Software Web</h3>
+            <p>Desarrollamos sitios y aplicaciones web modernas, seguras y escalables para potenciar tu presencia digital.</p>
+          </div>
+        </div>
+        <!-- Servicio: Scraping & Data -->
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="bi bi-hdd-network-fill"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">Scraping & Data</h3>
+            <p>Extraemos y procesamos información crítica para tomar decisiones basadas en datos precisos.</p>
+          </div>
+        </div>
+        <!-- Servicio: Software Personalizado -->
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">Software Personalizado</h3>
+            <p>Implementamos soluciones a medida que optimizan la eficiencia y el crecimiento de tu negocio.</p>
+          </div>
+        </div>
+        <!-- Servicio: Soluciones con IA -->
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">Soluciones con IA</h3>
+            <p>Integramos inteligencia artificial para automatizar procesos y potenciar la toma de decisiones.</p>
+          </div>
+        </div>
+        <!-- Servicio: Automatización -->
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="bi bi-sliders2"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">Automatización</h3>
+            <p>Implementamos sistemas automatizados que optimizan operaciones y reducen costes operativos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact-section minimal-contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2 class="contact-title">
+          <i class="bi bi-envelope"></i> Contacto
+        </h2>
+        <p class="contact-email">contacto&#64;fonttech.cl</p>
+        <button class="contact-button btn" type="button" onclick="window.location='mailto:contacto@fonttech.cl'">
+          Enviar Mensaje
+        </button>
+      </div>
+    </div>
+  </section>
+</main>

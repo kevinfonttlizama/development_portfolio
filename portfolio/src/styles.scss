@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles for the entire application */
+
+/* Estilos globales para asegurar el tema oscuro en toda la aplicación */
+body {
+  background-color: #121212 !important;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Aquí puedes agregar otros estilos globales según tus necesidades */

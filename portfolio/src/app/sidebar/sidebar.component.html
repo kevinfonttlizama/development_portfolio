@@ -3,7 +3,11 @@
     <img src="../../assets/FONTTECH_LOGO.jpg" alt="Fonttech Logo" width="40" height="32" />
     <span class="brand-text">Fonttech</span>
   </a>
-  <nav>
+  <!-- Botón de menú para móviles -->
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <i class="bi bi-list"></i>
+  </button>
+  <nav [class.active]="menuOpen">
     <ul class="nav-list">
       <li class="nav-item"><a routerLink="/home" fragment="inicio" class="nav-link">Inicio</a></li>
       <li class="nav-item"><a routerLink="/home" fragment="servicios" class="nav-link">Servicios</a></li>

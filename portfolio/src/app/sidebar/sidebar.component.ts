@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
   isSidebarExpanded = false;
+  menuOpen = false;
 
   toggleSidebar(): void {
     this.isSidebarExpanded = !this.isSidebarExpanded;
+  }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
   }
 
   scrollToSection(sectionId: string): void {

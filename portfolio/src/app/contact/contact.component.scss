@@ -1,0 +1,92 @@
+@import '../../styles.scss';
+
+// Estilos base para la sección de contacto
+.contact-section {
+  background-color: $dark-bg;
+  padding: 4rem 1rem;
+  text-align: center;
+
+  .contact-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  .contact-description {
+    font-size: 1.125rem;
+    color: $dark-text;
+    margin-bottom: 2rem;
+  }
+  .contact-button {
+    background: linear-gradient(135deg, $neon-color, $accent-color);
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $dark-bg;
+    cursor: pointer;
+    transition: transform $transition-speed, box-shadow $transition-speed;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// Estilos específicos para el diseño minimalista
+.contact-section.minimal-contact {
+  .contact-card {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: $card-black;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .contact-email {
+    font-size: 1.2rem;
+    color: $neon-color;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-button {
+    background: none;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $primary-color;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background: $primary-color;
+      color: $dark-bg;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

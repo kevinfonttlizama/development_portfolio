@@ -1,10 +1,20 @@
 /* Global styles for the entire application */
 
+$dark-bg: #121212;
+$dark-text: #e0e0e0;
+$primary-color: #0d6efd;
+$accent-color: lighten($primary-color, 20%);
+$neon-color: #0d6efd;
+$card-black: #1a1a1a;
+$transition-speed: 0.3s;
+$font-family-base: 'Montserrat', sans-serif;
+$dark-card-bg: #2c2c2c;
+
 /* Estilos globales para asegurar el tema oscuro en toda la aplicación */
 body {
-  background-color: #121212 !important;
-  color: #e0e0e0;
-  font-family: 'Montserrat', sans-serif;
+  background-color: $dark-bg !important;
+  color: $dark-text;
+  font-family: $font-family-base;
   margin: 0;
   padding: 0;
 }

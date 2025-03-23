@@ -14,11 +14,12 @@
         </ul>
       </div>
       <div class="srv-showcase">
-        <div id="carouselService1" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselService1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
           <div class="carousel-inner">
+            <!-- Proyecto existente -->
             <div class="carousel-item active">
               <div class="srv-screenshot">
-                <img src="../../assets/cat black tienda.PNG" alt="Web App">
+                <img src="../../assets/cat black tienda.PNG" alt="Web App" loading="eager">
                 <div class="srv-overlay">
                   <h4>Aire-acondicionado-cat-black.cl Tienda Ecommerce con pasarela de pago local Flow y panel autoadministrable </h4>
                   <p>Solución web completa con roles y permisos personalizados.</p>
@@ -30,7 +31,24 @@
                 </div>
               </div>
             </div>
+            
+            <!-- Nuevo proyecto de Check List -->
+            <div class="carousel-item">
+              <div class="srv-screenshot">
+                <img src="../../assets/documento_personalizado.png" alt="Generador Check List" loading="lazy">
+                <div class="srv-overlay">
+                  <h4>Generador de Check Lists Personalizados</h4>
+                  <p>Sistema web para la creación, edición y gestión de documentos check list personalizados adaptados a diferentes procesos y normativas.</p>
+                  <div class="srv-tags">
+                    <span>Angular</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselService1" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
@@ -39,6 +57,12 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Siguiente</span>
           </button>
+          
+          <!-- Agregar indicadores para mejor navegación -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselService1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselService1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
         </div>
       </div>
     </div>

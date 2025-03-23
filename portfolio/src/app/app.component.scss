@@ -1,0 +1,16 @@
+$sidebar-width: 240px;
+$sidebar-collapsed-width: 64px;
+
+.app-container {
+  &.has-sidebar {
+    padding-left: $sidebar-width;
+    
+    &.sidebar-collapsed {
+      padding-left: $sidebar-collapsed-width;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding-left: 0 !important; // Forzar sin padding en móviles
+  }
+}

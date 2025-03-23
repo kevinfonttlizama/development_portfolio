@@ -1,30 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
-  isSidebarExpanded = false;
-  menuOpen = false;
+export class SidebarComponent implements OnInit {
+  isCollapsed = false;
+  isMobileOpen = false;
 
-  toggleSidebar(): void {
-    this.isSidebarExpanded = !this.isSidebarExpanded;
-  }
+  constructor(private renderer: Renderer2) {}
 
-  toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  scrollToSection(sectionId: string): void {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
+  ngOnInit(): void {
+    // Cargar estado guardado
+    const savedCollapse = localStorage.getItem('sidebarCollapsed');
+    if (savedCollapse) {
+      this.isCollapsed = savedCollapse === 'true';
     }
-    this.isSidebarExpanded = false;
   }
 
-  
+  toggleCollapse(): void {
+    this.isCollapsed = !this.isCollapsed;
+    localStorage.setItem('sidebarCollapsed', this.isCollapsed.toString());
+  }
+
+  toggleMobileSidebar(): void {
+    this.isMobileOpen = !this.isMobileOpen;
+    if (this.isMobileOpen) {
+      this.renderer.addClass(document.body, 'mobile-menu-open');
+    } else {
+      this.renderer.removeClass(document.body, 'mobile-menu-open');
+    }
+  }
 }

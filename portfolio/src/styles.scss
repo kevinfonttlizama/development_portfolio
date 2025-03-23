@@ -17,6 +17,31 @@ body {
   font-family: $font-family-base;
   margin: 0;
   padding: 0;
+  // Eliminamos el padding-left para evitar el desplazamiento del contenido
+  transition: all 0.25s ease;
+}
+
+// Prevenimos scroll cuando el menú móvil está abierto
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* Contenedor principal de la aplicación - se usará para mantener el contenido principal */
+.app-container {
+  width: 100%;
+  transition: padding-left 0.25s ease;
+}
+
+// En dispositivos móviles, no aplicamos padding
+@media (max-width: 768px) {
+  body, body.sidebar-collapsed {
+    padding-left: 0;
+  }
+  
+  // Prevenir scroll cuando el menú móvil está abierto
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
 }
 
 /* Aquí puedes agregar otros estilos globales según tus necesidades */

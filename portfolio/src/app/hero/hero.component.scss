@@ -1,420 +1,991 @@
-// Variables para el tema oscuro y neon
+// Variables para el tema profesional
 $primary-color: #0d6efd;
-$neon-color: #0d6efd;
-$accent-color: #fd7e14; // Agrega esta línea para definir $accent-color
+$secondary-color: #7a29ff;
+$accent-color: #00c8ff;
+$highlight-color: #5ae4ff;
 $dark-text: #e0e0e0;
-$dark-bg: #121212; // Agrega esta variable para el fondo oscuro
+$dark-bg: #121212;
+$darker-bg: #080810;
+$terminal-bg: rgba(22, 24, 33, 0.8);
+$terminal-border: #2a2c37;
+$terminal-text: #d4d4d4;
+$terminal-header-bg: #252526;
+$terminal-prompt: #569cd6;
+$terminal-success: #608b4e;
+$terminal-string: #ce9178;
+$terminal-keyword: #c586c0;
+$terminal-class: #4ec9b0;
+$terminal-variable: #9cdcfe;
+$terminal-method: #dcdcaa;
+$terminal-comment: #6a9955;
+$terminal-property: #9cdcfe;
+$terminal-number: #b5cea8;
 $transition-speed: 0.3s;
 $font-family-base: 'Montserrat', sans-serif;
-$matte-black: #111111;
-$card-black: #1a1a1a;
+$font-family-mono: 'JetBrains Mono', 'Consolas', monospace;
+$box-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+$box-shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.4);
 
-// Define $dark-card-bg basado en $card-black
-$dark-card-bg: $card-black;
+// Gradient elegante
+$pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
 
-// Aunque el fondo global se define en styles.scss, aquí se define la coherencia para este componente
+// Estilos base para el componente hero
 :host {
   display: block;
   font-family: $font-family-base;
   color: $dark-text;
 }
 
-// Carrusel: imágenes responsivas
-.carousel-image {
+// Hero Section principal con fondo más premium
+.terminal-hero {
+  position: relative;
   height: 100vh;
-  object-fit: cover;
+  min-height: 700px;
+  background: radial-gradient(ellipse at top, #141e30, $darker-bg 70%);
+  overflow: hidden;
+  z-index: 1;
+  
+  // Eliminar scrollbars pero permitir scroll
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-// Overlay para el carrusel
-.carousel-overlay {
+// Terminal Header - Barra superior del terminal
+.terminal-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: $terminal-header-bg;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid $terminal-border;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  
+  .terminal-controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+    
+    .control {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+      
+      &:nth-child(1) {
+        background: linear-gradient(145deg, #ff5f57, #ec3c3a);
+      }
+      
+      &:nth-child(2) {
+        background: linear-gradient(145deg, #ffbd2e, #e0a023);
+      }
+      
+      &:nth-child(3) {
+        background: linear-gradient(145deg, #28c940, #23aa34);
+      }
+      
+      &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+        transition: all 0.2s ease;
+      }
+    }
+  }
+  
+  .terminal-title {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    color: rgba($dark-text, 0.7);
+    
+    .shell-prompt {
+      color: $terminal-method;
+    }
+    
+    .terminal-path {
+      color: $terminal-string;
+      opacity: 0.7;
+    }
+  }
+}
+
+// Animated Background Elements mejorados
+.animated-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 75vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
+  height: 100%;
+  z-index: 1;
 }
 
-// Ajuste de tipografía en el carrusel
-.carousel-caption {
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  h1, p {
-    color: $dark-text;
-  }
-}
-
-// Margen entre secciones
-.container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-/* ======= NUEVO DISEÑO DE SERVICIOS ======= */
-.service-box {
-  background-color: $dark-card-bg;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  transition: transform $transition-speed ease, box-shadow $transition-speed ease;
-  min-height: 250px;
+// Esfera tecnológica (nuevo elemento)
+.tech-globe {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba($primary-color, 0.02) 0%,
+    rgba($secondary-color, 0.01) 30%,
+    transparent 70%
+  );
+  opacity: 0.7;
   
-  &:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  }
-  
-  .service-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    color: $accent-color;
-  }
-  
-  .service-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: $primary-color;
-    margin-bottom: 0.5rem;
-  }
-  
-  p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: $dark-text;
-  }
-}
-
-// Nuevo diseño para la sección de Servicios
-.services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.service-item {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-  transition: transform $transition-speed, box-shadow $transition-speed;
-  cursor: pointer;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  }
-  
-  .service-icon-wrapper {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $dark-card-bg;
+  &::before, &::after {
+    content: '';
+    position: absolute;
     border-radius: 50%;
-    margin-right: 1.5rem;
-    font-size: 2rem;
-    color: $primary-color;
-    transition: background $transition-speed, transform $transition-speed;
-    
-    &:hover {
-      background: $primary-color;
-      color: $dark-bg;
-      transform: scale(1.1);
-    }
   }
   
-  .service-content {
-    h3.service-title {
-      margin: 0 0 0.5rem;
-      font-size: 1.3rem;
-      color: $primary-color;
-    }
-    p {
-      margin: 0;
-      font-size: 1rem;
-      color: $dark-text;
-      line-height: 1.5;
-    }
+  &::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba($accent-color, 0.1);
+    animation: spin 30s linear infinite;
+  }
+  
+  &::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba($primary-color, 0.05);
+    animation: spin 50s linear infinite reverse;
   }
 }
 
-// En pantallas mayores, se distribuyen en dos columnas
-@media (min-width: 768px) {
-  .services-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+// Haces de luz (nuevo efecto)
+.light-beams {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 100%;
+  height: 120%;
+  transform: rotate(-45deg);
+  opacity: 0.3;
+  overflow: hidden;
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 200%;
+    background: linear-gradient(90deg, transparent, rgba($accent-color, 0.5), transparent);
+    animation: scanBeam 8s linear infinite;
+  }
+  
+  &::before {
+    top: 30%;
+  }
+  
+  &::after {
+    top: 60%;
+    animation-delay: 4s;
   }
 }
 
+@keyframes scanBeam {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(50%); }
+}
 
-
-// Nuevo diseño para la sección de Servicios con estilo Neon
-.services-section {
-  background-color: $matte-black;
-  padding: 4rem 1rem;
+// Líneas de código (nuevo elemento)
+.code-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   
-  .section-title {
-    color: $dark-text;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 2px solid $neon-color;
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    animation: neon-glow 1.5s ease-in-out infinite alternate;
+  &::before {
+    content: '010101010101';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: $font-family-mono;
+    font-size: 70px;
+    color: rgba($accent-color, 0.03);
+    letter-spacing: 5px;
+    white-space: nowrap;
+    opacity: 0.5;
   }
   
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  &::after {
+    content: '101010101010';
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    font-family: $font-family-mono;
+    font-size: 60px;
+    color: rgba($primary-color, 0.03);
+    letter-spacing: 4px;
+    white-space: nowrap;
+    opacity: 0.5;
   }
+}
+
+// Grid digital mejorado
+.digital-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba($accent-color, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($accent-color, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+  z-index: 2;
   
-  .service-card {
-    background: $card-black;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    color: $dark-text;
-    position: relative;
-    overflow: hidden;
-    transition: transform $transition-speed, box-shadow $transition-speed;
-    border: 1px solid transparent;
+  &.pro {
+    background-size: 50px 50px;
+    transform: perspective(1000px) rotateX(60deg) translateY(-40%) scale(2);
+    opacity: 0.2;
+    transform-origin: center top;
+    height: 50%;
+  }
+}
+
+// Partículas flotantes mejoradas
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 3;
+  
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
     
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px $neon-color;
-    }
-    
-    .icon-wrapper {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: $neon-color;
-      box-shadow: 0 0 10px $neon-color;
-      transition: transform $transition-speed;
+    // Usamos un bucle para crear partículas con propiedades aleatorias
+    @for $i from 1 through 20 {
+      $size: (random(5) + 1) * 1px;     // Forma correcta: primero el cálculo, luego la unidad
+      $blur-value: random(6) + 2;        // Número sin unidad
+      $blur: $blur-value * 1px;          // Aplicar la unidad después
+      $color-r: random(2);
+      $top: random(100) + 0%;
+      $left: random(100) + 0%;
+      $duration: (random(50) + 20) * 1s; // Forma correcta para segundos
+      $delay: random(10) * 1s;           // Forma correcta para segundos
+      $opacity: calc((random(60) + 30) / 100);
       
-      &:hover {
-        transform: scale(1.1);
+      &:nth-child(#{$i}) {
+        top: $top;
+        left: $left;
+        width: $size;
+        height: $size;
+        opacity: $opacity;
+        box-shadow: 
+          0 0 $blur $accent-color,
+          0 0 ($blur-value * 2) * 1px rgba($accent-color, 0.4); // Multiplicar el valor numérico, luego aplicar unidad
+        
+        @if $color-r == 1 {
+          background-color: $primary-color;
+          box-shadow: 
+            0 0 $blur $primary-color,
+            0 0 ($blur-value * 2) * 1px rgba($primary-color, 0.4);
+        } @else {
+          background-color: $accent-color;
+          box-shadow: 
+            0 0 $blur $accent-color,
+            0 0 ($blur-value * 2) * 1px rgba($accent-color, 0.4);
+        }
+        
+        // Animación más avanzada
+        animation: 
+          floatingParticle $duration cubic-bezier(0.25, 0.1, 0.25, 1) infinite,
+          pulseGlow 4s ease-in-out infinite alternate;
+        animation-delay: $delay;
+      }
+    }
+  }
+}
+
+@keyframes floatingParticle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+    transform: translate(30px, -30px) rotate(90deg);
+  }
+  40% {
+    transform: translate(-20px, -50px) rotate(180deg);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translate(-40px, -20px) rotate(270deg);
+  }
+  80% {
+    transform: translate(-15px, 30px) rotate(360deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    filter: brightness(1);
+  }
+  50% { 
+    filter: brightness(1.5);
+  }
+}
+
+// Contenido principal en nuevo layout
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  padding-top: 2rem;
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .content-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// LEFT CONTENT - Terminal Window modernizado
+.left-content {
+  flex: 1 1 500px;
+}
+
+.terminal-window {
+  position: relative;
+  background: $terminal-bg;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($terminal-border, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $box-shadow-lg, 0 0 0 1px rgba($accent-color, 0.05);
+  animation: slideInLeft 1s ease-out;
+  
+  &.pro {
+    border-top: none;
+    max-width: 600px;
+  }
+  
+  .terminal-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 32, 43, 0.95);
+    padding: 0 0.5rem;
+    border-bottom: 1px solid rgba($terminal-border, 0.8);
+    height: 34px;
+    
+    .terminal-tabs {
+      display: flex;
+      height: 100%;
+      
+      .tab {
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        font-family: $font-family-mono;
+        font-size: 0.75rem;
+        color: rgba($dark-text, 0.5);
+        border-right: 1px solid $terminal-border;
+        height: 100%;
+        transition: all 0.3s ease;
+        
+        &.active {
+          color: $dark-text;
+          background: rgba(24, 26, 34, 0.8);
+          position: relative;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: $accent-color;
+          }
+        }
       }
     }
     
-    .service-title {
-      margin: 0.5rem 0 1rem;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      color: $neon-color;
-      text-shadow: 0 0 5px $neon-color;
+    .terminal-tools {
+      display: flex;
+      gap: 0.8rem;
+      
+      .tool-icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 2px;
+        background: rgba($dark-text, 0.1);
+      }
     }
+  }
+  
+  .terminal-content {
+    padding: 1rem;
+    min-height: 300px;
+  }
+}
+
+// Editor de código con efecto de escritura
+.code-editor {
+  display: flex;
+  font-family: $font-family-mono;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  
+  .line-numbers {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding-right: 0.8rem;
+    margin-right: 0.8rem;
+    color: rgba($dark-text, 0.3);
+    font-size: 0.85rem;
+    user-select: none;
+    border-right: 1px solid rgba($terminal-border, 0.5);
+  }
+  
+  .code-content {
+    flex: 1;
     
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
+    .code-line {
+      margin-bottom: 0.2rem;
+      white-space: pre;
+      
+      &.hidden {
+        opacity: 0;
+        height: 0;
+        margin: 0;
+        animation: revealCode 0.5s forwards;
+        animation-fill-mode: forwards;
+        
+        &:nth-child(5) {
+          animation-delay: 3s;
+        }
+        &:nth-child(6) {
+          animation-delay: 4s;
+        }
+        &:nth-child(7) {
+          animation-delay: 5s;
+        }
+      }
+      
+      &.typing {
+        position: relative;
+        
+        .typing-cursor {
+          display: inline-block;
+          width: 2px;
+          height: 17px;
+          background-color: $accent-color;
+          animation: codeBlink 1s step-end infinite;
+          vertical-align: middle;
+          margin-left: 1px;
+        }
+      }
+      
+      // Sintaxis coloreada
+      .keyword {
+        color: $terminal-keyword;
+      }
+      
+      .string {
+        color: $terminal-string;
+      }
+      
+      .class {
+        color: $terminal-class;
+      }
+      
+      .variable {
+        color: $terminal-variable;
+      }
+      
+      .method {
+        color: $terminal-method;
+      }
+      
+      .property {
+        color: $terminal-property;
+      }
     }
   }
 }
 
-/* ======= NUEVO DISEÑO DE SERVICIOS - Blanco y Negro Profesional ======= */
-.services-section {
-  background-color: $matte-black;
-  padding: 4rem 1rem;
-
-  .section-title {
-    color: #fff;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-bottom: 2px solid #fff;
-    display: inline-block;
-    padding-bottom: 0.5rem;
+@keyframes revealCode {
+  0% {
+    opacity: 0;
+    height: 0;
+    margin: 0;
   }
+  100% {
+    opacity: 1;
+    height: auto;
+    margin-bottom: 0.2rem;
+  }
+}
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+@keyframes codeBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+// RIGHT CONTENT - Información principal
+.right-content {
+  flex: 1 1 500px;
+}
+
+// Hero info block
+.hero-info {
+  animation: slideInRight 1s ease-out;
+  
+  .hero-title {
+    font-family: $font-family-base;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: $dark-text;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    
+    .text-gradient {
+      background: $pro-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
+    
+    .text-highlight {
+      color: $highlight-color;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        width: 100%;
+        height: 8px;
+        background: rgba($highlight-color, 0.2);
+        z-index: -1;
+        transform: skewX(-15deg);
+      }
     }
   }
   
-  .service-card {
-    /* Tarjeta con fondo blanco y tipografía negra */
-    background-color: #fff;
-    color: #000;
-    padding: 2rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform $transition-speed, box-shadow $transition-speed;
-    overflow: hidden;
+  .hero-description {
+    font-size: 1.1rem;
+    color: rgba($dark-text, 0.85);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    line-height: 1.6;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      width: 60px;
+      height: 3px;
+      background: $accent-color;
+    }
+  }
+}
+
+// Tech badges
+.tech-badges {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  
+  .badge {
+    padding: 0.4rem 1rem;
+    background: rgba($terminal-bg, 0.6);
+    border: 1px solid rgba($terminal-border, 0.5);
+    border-radius: 20px;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    color: $accent-color;
+    transition: all 0.3s ease;
     
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-  
-    .icon-wrapper {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      background-color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: #fff;
-      transition: transform $transition-speed;
-      
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-    
-    .service-title {
-      margin: 0.5rem 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-    
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 0;
+      background: rgba($terminal-bg, 0.8);
+      box-shadow: 0 5px 15px rgba($accent-color, 0.2);
     }
   }
 }
 
-/* ======= NUEVO DISEÑO DE SERVICIOS PERSONALIZADO ======= */
-.services-section {
-  background-color: $matte-black;
-  padding: 4rem 1rem;
-
-  .section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: $neon-color;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 2rem;
+// Botones CTA modernos
+.cta-buttons {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  
+  .pro-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.8rem;
+    border-radius: 6px;
+    font-family: $font-family-base;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
-    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    overflow: hidden;
+    box-shadow: $box-shadow-md;
+    
+    .btn-icon {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+      
+      i {
+        font-size: 1.1rem;
+      }
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0) 70%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &.primary {
+      background: $pro-gradient;
+      color: white;
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba($primary-color, 0.4);
+        
+        .btn-icon {
+          transform: translateX(4px);
+        }
+        
+        &::after {
+          opacity: 1;
+          animation: shimmer 1.5s infinite;
+        }
+      }
+      
+      &:active {
+        transform: translateY(0);
+        box-shadow: $box-shadow-sm;
+      }
+    }
+    
+    &.secondary {
+      background: transparent;
+      border: 1px solid rgba($accent-color, 0.5);
+      color: $accent-color;
+      
+      .btn-icon {
+        margin-right: 8px;
+        margin-left: 0;
+      }
+      
+      &:hover {
+        background: rgba($accent-color, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba($accent-color, 0.2);
+        
+        .btn-icon {
+          transform: translateY(-2px);
+        }
+      }
+      
+      &:active {
+        transform: translateY(0);
+        box-shadow: $box-shadow-sm;
+      }
+    }
   }
+}
 
-  .services-list {
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+// Status bar con métricas
+.status-bar {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba($terminal-border, 0.5);
+  animation: fadeIn 1s ease-out 1s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  
+  .status-item {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-  }
-
-  .service-item {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform $transition-speed, border-color $transition-speed;
-    cursor: pointer;
-
-    &:hover {
-      transform: translateX(5px);
-      border-color: $neon-color;
-    }
-
-    .service-icon {
-      font-size: 3rem;
-      color: $neon-color;
-      margin-right: 1.5rem;
-      flex-shrink: 0;
-      transition: transform $transition-speed;
+    align-items: flex-start;
+    
+    .status-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: $terminal-success;
+      margin-bottom: 0.5rem;
+      position: relative;
       
-      &:hover {
-        transform: scale(1.1);
+      &.active::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 50%;
+        border: 1px solid rgba($terminal-success, 0.5);
+        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
       }
     }
     
-    .service-info {
-      h3.service-title {
-        font-size: 1.5rem;
-        color: #fff;
-        margin: 0;
-        text-shadow: 0 0 5px $neon-color;
-      }
-      p {
-        font-size: 1rem;
-        margin: 0.5rem 0 0;
-        color: #ccc;
-        line-height: 1.4;
-      }
+    .status-value {
+      font-family: $font-family-mono;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $accent-color;
+      margin-bottom: 0.3rem;
+    }
+    
+    .status-label {
+      font-size: 0.75rem;
+      color: rgba($dark-text, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   }
 }
 
-.services-section {
-  .section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #fff;  // Letras blancas
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 2rem;
-    position: relative;
-    
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
 
+// Transición de onda mejorada 
+.wave-transition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  z-index: 30;
+  
+  svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    
+    path {
+      fill: $dark-bg;
+      transform-origin: bottom;
+      animation: waveMotion 12s ease-in-out infinite alternate;
+    }
+  }
+}
+
+@keyframes waveMotion {
+  0% {
+    d: path("M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z");
+  }
+  50% {
+    d: path("M0,32L80,48C160,64,320,96,480,96C640,96,800,64,960,48C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z");
+  }
+  100% {
+    d: path("M0,96L80,85.3C160,75,320,53,480,53.3C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z");
+  }
+}
+
+// Animaciones mejoradas
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { 
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from { 
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Media queries para responsive design
+@media (max-width: 1100px) {
+  .content-layout {
+    flex-direction: column-reverse;
+    justify-content: center;
   }
   
-  .section-title {
+  .left-content, .right-content {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  
+  .terminal-window.pro {
+    max-width: 100%;
+  }
+  
+  .tech-globe {
+    opacity: 0.4;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 60px;
+  }
+  
+  .terminal-window {
+    min-height: 270px;
+  }
+  
+  .code-editor {
+    font-size: 0.8rem;
+  }
+  
+  .hero-title {
     font-size: 2.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 2rem;
-    text-align: center;
-    /* Gradiente en el texto */
-    background: linear-gradient(to right, $neon-color, $accent-color);
-    -webkit-background-clip: text;
-    background-clip: text; /* Propiedad estándar para compatibilidad */
-    -webkit-text-fill-color: transparent;
-    position: relative;
+  }
+  
+  .hero-info .hero-description {
+    font-size: 1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
     
-
+    .pro-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  .tech-badges {
+    justify-content: center;
   }
 }
 
-// Animación para el glow del título
-@keyframes neon-glow {
-  from {
-    text-shadow: 0 0 5px $neon-color, 0 0 10px $neon-color;
+@media (max-width: 576px) {
+  .terminal-window {
+    min-height: 220px;
   }
-  to {
-    text-shadow: 0 0 20px $neon-color, 0 0 30px $neon-color;
+  
+  .code-editor {
+    font-size: 0.75rem;
+    
+    .line-numbers {
+      display: none;
+    }
+  }
+  
+  .terminal-header .terminal-title {
+    font-size: 0.7rem;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-info .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .status-bar {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: space-between;
   }
 }
-
-
-

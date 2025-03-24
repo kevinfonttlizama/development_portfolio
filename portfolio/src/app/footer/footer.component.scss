@@ -154,7 +154,9 @@ $terminal-border: #333;
         i {
           background: $email-gradient;
           -webkit-background-clip: text;
+          background-clip: text;  // Añadir esta línea
           -webkit-text-fill-color: transparent;
+          color: transparent;  // Añadir esta línea para navegadores no-webkit
           filter: drop-shadow(0 0 1px rgba(255,255,255,0.3));
         }
         

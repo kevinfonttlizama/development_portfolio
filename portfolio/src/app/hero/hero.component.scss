@@ -30,6 +30,9 @@ $box-shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.4);
 // Gradient elegante
 $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
 
+// Importar el módulo math de SASS para usar división correctamente
+@use "sass:math";
+
 // Estilos base para el componente hero
 :host {
   display: block;
@@ -269,7 +272,7 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
   }
 }
 
-// Partículas flotantes mejoradas
+// Partículas flotantes optimizadas
 .particles-container {
   position: absolute;
   top: 0;
@@ -286,17 +289,19 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
     background-color: transparent;
     border-radius: 50%;
     pointer-events: none;
+    will-change: transform, opacity; // Mejora rendimiento informando al navegador
     
     // Usamos un bucle para crear partículas con propiedades aleatorias
     @for $i from 1 through 20 {
-      $size: (random(5) + 1) * 1px;     // Forma correcta: primero el cálculo, luego la unidad
-      $blur-value: random(6) + 2;        // Número sin unidad
-      $blur: $blur-value * 1px;          // Aplicar la unidad después
+      $size: (random(5) + 1) * 1px;
+      $blur-value: random(6) + 2;
+      $blur: $blur-value * 1px;
       $color-r: random(2);
       $top: random(100) + 0%;
       $left: random(100) + 0%;
-      $duration: (random(50) + 20) * 1s; // Forma correcta para segundos
-      $delay: random(10) * 1s;           // Forma correcta para segundos
+      $duration: (random(50) + 20) * 1s;
+      $delay: random(10) * 1s;
+      // Corregir la división usando calc() para evitar la advertencia
       $opacity: calc((random(60) + 30) / 100);
       
       &:nth-child(#{$i}) {
@@ -305,9 +310,6 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
         width: $size;
         height: $size;
         opacity: $opacity;
-        box-shadow: 
-          0 0 $blur $accent-color,
-          0 0 ($blur-value * 2) * 1px rgba($accent-color, 0.4); // Multiplicar el valor numérico, luego aplicar unidad
         
         @if $color-r == 1 {
           background-color: $primary-color;
@@ -321,11 +323,16 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
             0 0 ($blur-value * 2) * 1px rgba($accent-color, 0.4);
         }
         
-        // Animación más avanzada
+        // Animación optimizada para rendimiento
         animation: 
           floatingParticle $duration cubic-bezier(0.25, 0.1, 0.25, 1) infinite,
           pulseGlow 4s ease-in-out infinite alternate;
         animation-delay: $delay;
+        
+        // Optimizar aún más en dispositivos no potentes
+        @media (prefers-reduced-motion: reduce) {
+          animation-duration: 60s, 10s; // Reducir la frecuencia de actualización
+        }
       }
     }
   }
@@ -598,7 +605,7 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
+      color: transparent; // Usa esta propiedad estándar en lugar de text-fill-color
     }
     
     .text-highlight {

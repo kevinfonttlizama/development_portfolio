@@ -4,9 +4,19 @@
   "outputDirectory": "dist/portfolio",
   "framework": "angular",
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html",
+      "status": 200
+    }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
@@ -24,5 +34,8 @@
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }

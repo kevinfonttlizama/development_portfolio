@@ -1051,3 +1051,124 @@ $prefix: 'srv';
     }
   }
 }
+
+// Agregar a services.component.scss
+
+// Optimización para servicios en tablet
+@media (max-width: 991px) {
+  .services-section {
+    .#{$prefix}-zigzag-service {
+      flex-direction: column !important; // Forzar columna para todos
+      
+      &.reverse {
+        flex-direction: column !important;
+      }
+      
+      .#{$prefix}-description,
+      .#{$prefix}-showcase {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    
+    // Arreglar espaciado entre servicios
+    .#{$prefix}-zigzag-service:not(:last-child) {
+      margin-bottom: 5rem;
+      padding-bottom: 3rem;
+    }
+  }
+}
+
+// Optimización para móviles
+@media (max-width: 767px) {
+  .services-section {
+    padding: 4rem 0;
+    
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+    }
+    
+    // Evitar desbordamientos de texto
+    .#{$prefix}-description h3 {
+      font-size: 1.8rem;
+      word-break: break-word;
+    }
+    
+    // Mejorar visualización de carruseles
+    .#{$prefix}-showcase {
+      margin-bottom: 2rem;
+      
+      .carousel .carousel-item {
+        height: 250px; // Reducir altura para mejor visualización
+      }
+    }
+    
+    // Correcciones específicas por servicio
+    
+    // Web service
+    .#{$prefix}-web .#{$prefix}-description {
+      h3 {
+        white-space: normal;
+        overflow: visible;
+        
+        &::after {
+          display: none;
+        }
+      }
+    }
+    
+    // AI service
+    .#{$prefix}-ai .#{$prefix}-description {
+      .#{$prefix}-features li {
+        padding: 8px 10px 8px 30px;
+        border-radius: 15px;
+      }
+    }
+    
+    // Server service
+    .#{$prefix}-server .#{$prefix}-description {
+      &::before, &::after {
+        opacity: 1; // Siempre visible en móvil
+      }
+    }
+    
+    // Optimizar overlay para tocar en móvil
+    .#{$prefix}-screenshot .#{$prefix}-overlay {
+      opacity: 1;
+      transform: translateY(0);
+      background: rgba(0,0,0,0.65);
+      
+      h4 {
+        font-size: 1.2rem;
+      }
+      
+      p {
+        font-size: 0.9rem;
+      }
+      
+      .#{$prefix}-tags span {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+// Ajustes para móviles muy pequeños
+@media (max-width: 380px) {
+  .services-section {
+    .#{$prefix}-description h3 {
+      font-size: 1.5rem;
+    }
+    
+    .#{$prefix}-description p {
+      font-size: 0.9rem;
+    }
+    
+    .carousel .carousel-item {
+      height: 200px;
+    }
+  }
+}

@@ -963,6 +963,52 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
   .tech-badges {
     justify-content: center;
   }
+
+  // Optimizaciones generales para móvil
+  .terminal-hero {
+    min-height: 600px;
+    height: auto;
+    padding-bottom: 80px;
+  }
+  
+  // Reducir partículas en móvil para mejor rendimiento
+  .particles-container .particle:nth-child(n+5) {
+    display: none !important;
+  }
+  
+  // Ajustar elementos de fondo
+  .tech-globe, .light-beams {
+    opacity: 0.15; // Casi invisibles en móvil
+    transform: scale(0.6);
+  }
+  
+  // Optimizar terminal
+  .terminal-header {
+    .terminal-title {
+      .terminal-path {
+        display: none; // Ocultar ruta en móvil
+      }
+      
+      .shell-prompt {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 240px;
+      }
+    }
+  }
+
+  // Ajustar tamaño de terminal
+  .terminal-content {
+    min-height: 230px;
+  }
+  
+  // Mejorar visibilidad de botones
+  .cta-buttons .pro-button {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -994,5 +1040,26 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
     flex-wrap: wrap;
     row-gap: 1rem;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .terminal-window .code-editor {
+    font-size: 0.7rem;
+  }
+  
+  // Simplificar badges
+  .tech-badges .badge {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  
+  // Mantener ola más estática
+  .wave-transition svg {
+    animation: none;
   }
 }

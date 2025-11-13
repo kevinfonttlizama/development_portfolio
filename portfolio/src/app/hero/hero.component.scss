@@ -534,6 +534,7 @@ $pro-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
           animation: codeBlink 1s step-end infinite;
           vertical-align: middle;
           margin-left: 1px;
+          color: transparent;
         }
       }
       

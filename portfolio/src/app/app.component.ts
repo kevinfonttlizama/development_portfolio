@@ -1,43 +1,42 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   isMobileView = false;
-  isCollapsed = false;
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.checkScreenWidth();
   }
 
   ngOnInit() {
     this.checkScreenWidth();
-    
-    // Escuchar cambios en el estado de la sidebar
     window.addEventListener('storage', (event) => {
       if (event.key === 'sidebarCollapsed') {
         this.updateSidebarClass();
       }
     });
-    
     this.updateSidebarClass();
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('toggle-sidebar', () => {});
+  }
+
+  toggleSidebarFromFab(): void {
+    window.dispatchEvent(new CustomEvent('toggle-sidebar'));
   }
 
   checkScreenWidth() {
     this.isMobileView = window.innerWidth <= 768;
   }
-  
+
   updateSidebarClass() {
     const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-    
-    if (isCollapsed) {
-      document.querySelector('.app-container')?.classList.add('sidebar-collapsed');
-    } else {
-      document.querySelector('.app-container')?.classList.remove('sidebar-collapsed');
-    }
+    document.body.classList.toggle('sidebar-collapsed', isCollapsed);
   }
 }

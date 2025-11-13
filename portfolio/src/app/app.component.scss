@@ -1,9 +1,27 @@
-$sidebar-width: 240px;
+$app-sidebar-width: 240px;
+
+.app-main {
+  min-height: 100vh;
+  padding-left: 0;
+  transition: padding-left 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main.with-sidebar {
+  padding-left: $app-sidebar-width;
+}
+
+.app-content {
+  flex: 1 1 auto;
+}
+
+@app-sidebar-width: 240px;
 $sidebar-collapsed-width: 64px;
 
 .app-container {
   &.has-sidebar {
-    padding-left: $sidebar-width;
+    padding-left: $app-sidebar-width;
     
     &.sidebar-collapsed {
       padding-left: $sidebar-collapsed-width;
@@ -12,5 +30,33 @@ $sidebar-collapsed-width: 64px;
   
   @media (max-width: 768px) {
     padding-left: 0 !important; // Forzar sin padding en móviles
+  }
+}
+
+.sidebar-fab {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(18, 18, 18, 0.85);
+  color: #e4e4e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  z-index: 1100;
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(13, 110, 253, 0.35);
+  }
+
+  i {
+    font-size: 1.6rem;
   }
 }

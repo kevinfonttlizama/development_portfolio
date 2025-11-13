@@ -1,9 +1,18 @@
 <!-- Sidebar -->
 <app-sidebar></app-sidebar>
 <!-- Contenedor principal -->
-<div class="app-container" [ngClass]="{'has-sidebar': !isMobileView}">
+<div class="app-main" [ngClass]="{ 'with-sidebar': !isMobileView }">
   <!-- Contenido de la aplicación -->
-  <router-outlet></router-outlet>
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>
+<button
+  *ngIf="isMobileView"
+  class="sidebar-fab"
+  type="button"
+  (click)="toggleSidebarFromFab()"
+  aria-label="Abrir menú">
+  <i class="bi bi-list"></i>
+</button>

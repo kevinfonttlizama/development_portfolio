@@ -69,8 +69,8 @@ $sidebar-collapsed-width: 64px;
   .sidebar-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 16px;
+    justify-content: center;
+    padding: 20px 16px;
     border-bottom: 1px solid $border-subtle;
     
     .logo-container {
@@ -166,17 +166,12 @@ $sidebar-collapsed-width: 64px;
             position: relative;
             transition: all $transition-speed ease;
             border-left: 3px solid transparent;
-            
-            &:hover {
-              color: $text-primary;
-              background: rgba(255, 255, 255, 0.05);
-            }
-            
+
             &.active {
               color: $accent-blue;
               border-left-color: $accent-blue;
               background: rgba($accent-blue, 0.08);
-              
+
               .active-indicator {
                 opacity: 1;
                 transform: translateX(0);

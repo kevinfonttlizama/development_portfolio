@@ -1,47 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
-  
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="connect-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          connect-src 'self' https://www.google-analytics.com https://www.googleadservices.com https://www.google.com https://www.google.cl https://www.googletagmanager.com https://googleads.g.doubleclick.net https://cdn.jsdelivr.net;
+          script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://cdn.jsdelivr.net;
+          style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+          img-src 'self' data: https://www.google-analytics.com https://www.googleadservices.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.cl;
+          font-src 'self' https://cdn.jsdelivr.net;
+          frame-src 'self' https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net;">
   <title>Desarrollo web Programacion Gestion de proyectos | Fonttech</title>
-  <meta name="description" content="Soluciones de desarrollo web, programacion, Gestion de proyectos e ingeniería de software con tecnología moderna, integración cloud y soporte experto para potenciar tu negocio digital.">
+  <meta name="description" content="Soluciones de desarrollo web, programacion, Gestion de proyectos e ingeniería de software con tecnología moderna para potenciar tu negocio digital.">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
-  <!-- Event snippet for Solicitar cotización conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17663418153/6j21CJzT6cEbEKm-yeZB',
-      'value': 1.0,
-      'currency': 'CLP'
-  });
-</script>
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S96P7V1S84"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    const analyticsIds = ['G-S96P7V1S84', 'AW-17663418153'];
+    gtag('js', new Date());
+    analyticsIds.forEach(id => gtag('config', id));
+
+    window.addEventListener('load', () => {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17663418153/6j21CJzT6cEbEKm-yeZB',
+        value: 1.0,
+        currency: 'CLP'
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S96P7V1S84"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S96P7V1S84');
-</script>
 <body>
   <app-root></app-root>
 </body>
 </html>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17663418153"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17663418153');
-</script>
